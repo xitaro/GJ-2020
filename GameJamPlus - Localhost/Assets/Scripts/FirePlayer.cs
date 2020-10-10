@@ -2,22 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class fireScript : MonoBehaviour
+public class FirePlayer : MonoBehaviour
 {
     public Rigidbody rbBala;
     public float explosionForce = 10;
-    public Bot _bot;
-    
+
+    public BeatEmUpMovement_SinglePlayer _player;
 
     public void Awake()
     {
         rbBala = FindObjectOfType<Rigidbody>();
-        _bot = FindObjectOfType<Bot>();
+
     }
 
     public void Start()
     {
-        rbBala.AddForce(_bot.transform.forward * explosionForce, ForceMode.Impulse);
+
+        rbBala.AddForce(_player.transform.forward * explosionForce, ForceMode.Impulse);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -27,5 +28,4 @@ public class fireScript : MonoBehaviour
             collision.gameObject.transform.tag = "Enemy";
         }
     }
-
 }

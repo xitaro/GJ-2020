@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 //using Mirror;
@@ -33,6 +34,11 @@ public class BeatEmUpMovement_SinglePlayer : MonoBehaviour//NetworkBehaviour
     [SerializeField] private float innerVerticalOffset = 0.25f;
     [SerializeField] private float distanceGrounded = 0.15f;
     [SerializeField] private float slopeThreshold = 0.55f;
+    
+    [Header("Fire")]
+    public bool canShoot = false;
+    public GameObject prefBala;
+    public Transform fireTransform;
 
     private void Awake()
     {
@@ -42,6 +48,22 @@ public class BeatEmUpMovement_SinglePlayer : MonoBehaviour//NetworkBehaviour
     //[Client]
     private void Update()
     {
+        if (gameObject.tag == "Enemy")
+        {
+            canShoot = true;
+        }
+
+        if (canShoot == true)
+        {
+            //Input to Fire TROCAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            if (Input.GetKeyDown(KeyCode.T))
+            {
+                canShoot = false;
+                Invoke("Fire", 2f);
+                
+            }
+        }
+
        // if (!hasAuthority) { return; }
 
         //Look at which key the user is pressing, store it
@@ -83,6 +105,19 @@ public class BeatEmUpMovement_SinglePlayer : MonoBehaviour//NetworkBehaviour
 
         // If we're on the floor, angle our vector to match its curves
         if (slopeNormal != Vector3.up) moveVector = FollowFloor(moveVector);
+    }
+
+    void Fire()
+    {
+        //Atira
+        Instantiate(prefBala, new Vector3(fireTransform.position.x, fireTransform.position.y, fireTransform.position.z), Quaternion.identity);
+        Invoke("FireAgain", 10f);
+
+    }
+    void FireAgain()
+    {
+        //Colocar uma imagem que pode atirar de novo!
+        canShoot = true;
     }
 
     private void FixedUpdate()

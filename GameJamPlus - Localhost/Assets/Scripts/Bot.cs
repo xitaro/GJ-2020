@@ -47,7 +47,7 @@ public class Bot : MonoBehaviour
         {
             cassando();
         }
-        //else moving();
+        else moving();
 
         if (chasing)
         {
