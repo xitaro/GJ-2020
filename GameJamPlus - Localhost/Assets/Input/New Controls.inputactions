@@ -1,0 +1,50 @@
+{
+    "name": "New Controls",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "bd7be063-39a6-4838-9652-28d02350d9e0",
+            "actions": [
+                {
+                    "name": "Follow",
+                    "type": "Value",
+                    "id": "56f9dd6e-4c7e-4142-afc8-029b0207f5ce",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "cc8f8cf5-291f-48d4-ae49-730268eadd41",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Kewboard & Mouse",
+                    "action": "Follow",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "Kewboard & Mouse",
+            "bindingGroup": "Kewboard & Mouse",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Mouse>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}
