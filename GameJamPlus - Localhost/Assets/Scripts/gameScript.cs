@@ -9,7 +9,7 @@ public class gameScript : MonoBehaviour
     bool b=true;
     public GameObject spaw;
     public GameObject[] players;
-    [SerializeField] float Timer;
+    [SerializeField] float Timer,TotalPartida;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,11 +19,12 @@ public class gameScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        players = GameObject.FindGameObjectsWithTag("Player");
         time += Time.deltaTime;
+        i = players.Length;
         if (time <= Timer-1)
         {
-            players = GameObject.FindGameObjectsWithTag("Player");
-            i = players.Length;
+           // players = GameObject.FindGameObjectsWithTag("Player");
             a = Random.Range(0, i);
             spaw = players[a];
         }
@@ -31,6 +32,11 @@ public class gameScript : MonoBehaviour
         {
             spaw.transform.gameObject.tag = "Enemy";
             b = false;
+        }
+
+        if(i==0)
+        {
+           
         }
     }
  
