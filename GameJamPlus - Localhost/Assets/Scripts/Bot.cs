@@ -109,8 +109,9 @@ public class Bot : MonoBehaviour
                 chasing = true;
                 B = false;
                 //Atirar
+               
                 if (canShoot == true) {
-                    Fire();
+                    Invoke("Fire", 2f);
                     canShoot = false;
                 }
                 
@@ -136,9 +137,7 @@ public class Bot : MonoBehaviour
 
     void FireAgain()
     {
-        
         canShoot = true;
-
     }
  
     void moving()

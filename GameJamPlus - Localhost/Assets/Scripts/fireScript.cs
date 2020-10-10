@@ -6,17 +6,17 @@ public class fireScript : MonoBehaviour
 {
     public Rigidbody rbBala;
     public float explosionForce = 10;
+    public Bot _bot;
 
     public void Awake()
     {
         rbBala = FindObjectOfType<Rigidbody>();
+        _bot = FindObjectOfType<Bot>();
     }
 
     public void Start()
     {
-        rbBala.AddForce(transform.forward * explosionForce, ForceMode.Impulse);
+        rbBala.AddForce(_bot.transform.forward * explosionForce, ForceMode.Impulse);
     }
-
-
 
 }
