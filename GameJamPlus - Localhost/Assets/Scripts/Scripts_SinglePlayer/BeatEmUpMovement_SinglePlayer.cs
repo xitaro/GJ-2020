@@ -17,11 +17,16 @@ public class BeatEmUpMovement_SinglePlayer : MonoBehaviour//NetworkBehaviour
     private bool isGrounded;
 
     [Header("Movement")]
+    [SerializeField] private float speed = 5;
     [SerializeField] private float speedX = 5;
     [SerializeField] private float speedY = 5;
     [SerializeField] private float gravity = 0.25f;
     [SerializeField] private float terminalVelocity = 5.0f;
     [SerializeField] private float jumpForce = 8.0f;
+    Vector3 moveVector;
+
+    [Header("Rotation")]
+    private float rotateSpeed = 5;
 
     [Header("Ground Check Raycast")]
     [SerializeField] private float extremitiesOffset = 0.05f;
@@ -43,7 +48,8 @@ public class BeatEmUpMovement_SinglePlayer : MonoBehaviour//NetworkBehaviour
         Vector3 inputVector = PoolInput();
 
         //Multiply the inputs with the speed, and switch Y & Z
-        Vector3 moveVector = new Vector3(inputVector.x * speedX, 0, inputVector.y * speedY);
+         moveVector = new Vector3(inputVector.x, 0, inputVector.y);
+         Rotate(moveVector);
 
         // Store it in a variable, so we don't call it more than once per frame
         isGrounded = Grounded();
@@ -77,11 +83,21 @@ public class BeatEmUpMovement_SinglePlayer : MonoBehaviour//NetworkBehaviour
 
         // If we're on the floor, angle our vector to match its curves
         if (slopeNormal != Vector3.up) moveVector = FollowFloor(moveVector);
-
-        //Finaly move the controller, this also checks for collisions
-        controller.Move(moveVector * Time.deltaTime);
     }
-    
+
+    private void FixedUpdate()
+    {
+        //Finaly move the controller, this also checks for collisions
+        controller.Move(moveVector*speed * Time.deltaTime);
+       
+    }
+
+    public void Rotate(Vector3 moveVector)
+    {
+        Quaternion rotation = Quaternion.LookRotation(moveVector);
+        transform.rotation = rotation;
+    }
+
     private Vector3 PoolInput()
     {
         Vector3 r = Vector3.zero;
