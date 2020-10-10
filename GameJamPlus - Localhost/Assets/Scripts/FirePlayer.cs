@@ -5,7 +5,7 @@ using UnityEngine;
 public class FirePlayer : MonoBehaviour
 {
     public Rigidbody rbBala;
-    public float explosionForce = 10;
+    public float explosionForce = 100;
 
     public BeatEmUpMovement_SinglePlayer _player;
 
@@ -18,7 +18,12 @@ public class FirePlayer : MonoBehaviour
     public void Start()
     {
 
-        rbBala.AddForce(_player.transform.forward * explosionForce, ForceMode.Impulse);
+        rbBala.AddForce(transform.forward * explosionForce, ForceMode.Impulse);
+
+    }
+    public void Update()
+    {
+       // rbBala.transform.Translate(0, 0, 10 * Time.deltaTime);
     }
 
     private void OnCollisionEnter(Collision collision)

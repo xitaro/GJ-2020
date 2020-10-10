@@ -70,8 +70,16 @@ public class BeatEmUpMovement_SinglePlayer : MonoBehaviour//NetworkBehaviour
         Vector3 inputVector = PoolInput();
 
         //Multiply the inputs with the speed, and switch Y & Z
-         moveVector = new Vector3(inputVector.x, 0, inputVector.y);
-         Rotate(moveVector);
+        /*moveVector = new Vector3(inputVector.x, 0, inputVector.y);
+        Rotate(moveVector);*/
+
+        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        controller.Move(move * Time.deltaTime * 10);
+
+        if (move != Vector3.zero)
+        {
+            gameObject.transform.forward = move;
+        }
 
         // Store it in a variable, so we don't call it more than once per frame
         isGrounded = Grounded();
@@ -99,18 +107,19 @@ public class BeatEmUpMovement_SinglePlayer : MonoBehaviour//NetworkBehaviour
             if (verticalVelocity < -terminalVelocity)
                 verticalVelocity = -terminalVelocity;
         }
+        /*
 
         // Apply verticalVelocity to our movement vector
         moveVector.y = verticalVelocity;
 
         // If we're on the floor, angle our vector to match its curves
-        if (slopeNormal != Vector3.up) moveVector = FollowFloor(moveVector);
+        if (slopeNormal != Vector3.up) moveVector = FollowFloor(moveVector);*/
     }
 
     void Fire()
     {
         //Atira
-        Instantiate(prefBala, new Vector3(fireTransform.position.x, fireTransform.position.y, fireTransform.position.z), Quaternion.identity);
+        Instantiate(prefBala,fireTransform.position, fireTransform.rotation);
         Invoke("FireAgain", 10f);
 
     }
