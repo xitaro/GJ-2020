@@ -8,6 +8,7 @@ public class BeatEmUpMovement_SinglePlayer : MonoBehaviour//NetworkBehaviour
     [Header("Components")]
     [SerializeField] private Animator anim;
     private CharacterController controller;
+    [SerializeField] private Joystick joystick;
 
 
     [Header("Logic")]
@@ -45,10 +46,10 @@ public class BeatEmUpMovement_SinglePlayer : MonoBehaviour//NetworkBehaviour
        // if (!hasAuthority) { return; }
 
         //Look at which key the user is pressing, store it
-        Vector3 inputVector = PoolInput();
+        //Vector3 inputVector = PoolInput();
 
         //Multiply the inputs with the speed, and switch Y & Z
-         moveVector = new Vector3(inputVector.x, 0, inputVector.y);
+         moveVector = new Vector3(joystick.Horizontal, 0, joystick.Vertical);
          Rotate(moveVector);
 
         // Store it in a variable, so we don't call it more than once per frame
@@ -61,9 +62,7 @@ public class BeatEmUpMovement_SinglePlayer : MonoBehaviour//NetworkBehaviour
             // If spacebar, apply high negative gravity, and forget about the floor
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                verticalVelocity = jumpForce;
-                //reset the slope normal
-                slopeNormal = Vector3.up;
+                Jump();
             }
         }
         else //if not on the floor
@@ -105,6 +104,13 @@ public class BeatEmUpMovement_SinglePlayer : MonoBehaviour//NetworkBehaviour
         r.x = Input.GetAxisRaw("Horizontal");
         r.y = Input.GetAxisRaw("Vertical");
         return r.normalized;
+    }
+
+    public void Jump()
+    {
+        verticalVelocity = jumpForce;
+        //reset the slope normal
+        slopeNormal = Vector3.up;
     }
 
     private Vector3 FollowFloor(Vector3 moveVector)

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6688379169331758984}
   m_Layer: 0
   m_Name: Model
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 3764993304730125142}
   m_Layer: 0
   m_Name: Player_SinglePlayer
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,6 +141,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
+  joystick: {fileID: 0}
+  speed: 5
   speedX: 5
   speedY: 5
   gravity: 0.25
@@ -180,8 +182,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 085708067826d55428fd1d798ae238f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookAt: {fileID: 6652366724473753722}
-  virtualCamera: {fileID: 3258374347567787317}
 --- !u!1 &8490134261194300365
 GameObject:
   m_ObjectHideFlags: 0

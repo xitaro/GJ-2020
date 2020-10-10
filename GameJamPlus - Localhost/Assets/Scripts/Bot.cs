@@ -22,12 +22,18 @@ public class Bot : MonoBehaviour
     public  NavMeshAgent navAgent;
     private bool B=true;
     GameObject player;
+
+    private bool canShoot = true;
+    public GameObject prefBala;
+    public Transform fireTransform;
+   
     
 
     
     // Start is called before the first frame update
     void Start()
     {
+       
         actualPoint = Random.Range(0, 4);
         target = points[actualPoint];
     }
@@ -102,7 +108,12 @@ public class Bot : MonoBehaviour
                 navAgent.transform.LookAt(look);
                 chasing = true;
                 B = false;
-
+                //Atirar
+                if (canShoot == true) {
+                    Fire();
+                    canShoot = false;
+                }
+                
             }
          
             //Persegue o último lugar que viu o player
@@ -112,6 +123,21 @@ public class Bot : MonoBehaviour
             }
          
         }
+
+    }
+
+    void Fire()
+    {
+        //Atira
+        Instantiate(prefBala, new Vector3(fireTransform.position.x, fireTransform.position.y, fireTransform.position.z), Quaternion.identity);
+        Invoke("FireAgain", 10f);
+
+    }
+
+    void FireAgain()
+    {
+        
+        canShoot = true;
 
     }
  
