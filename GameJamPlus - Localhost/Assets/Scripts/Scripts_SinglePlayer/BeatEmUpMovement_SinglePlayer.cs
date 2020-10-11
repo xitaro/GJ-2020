@@ -72,6 +72,7 @@ public class BeatEmUpMovement_SinglePlayer : MonoBehaviour//NetworkBehaviour
 
 
         moveVector = new Vector3(/*Input.GetAxis("Horizontal")*/joystick.Horizontal, 0, joystick.Vertical/*Input.GetAxis("Vertical")*/);
+        anim?.SetFloat("Speed", moveVector.magnitude);
         Rotate();
 
         //Rotate(moveVector);

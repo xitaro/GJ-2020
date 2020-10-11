@@ -14,6 +14,7 @@ public class PlayerScript : MonoBehaviour
     [Header("Models")]
     [SerializeField] private GameObject doctorSkin;
     [SerializeField] private GameObject infectedSkin;
+    [SerializeField] private GameObject navMeshObject;
 
     [Header("Infected")]
     [SerializeField] private bool isInfected;
@@ -24,7 +25,7 @@ public class PlayerScript : MonoBehaviour
     private void Update()
     {
         // Se a tag for inimigo
-        if (gameObject.tag == "Enemy")
+        if (navMeshObject.tag == "Enemy")
         {
             // Está infectado
             isInfected = true;
@@ -86,7 +87,7 @@ public class PlayerScript : MonoBehaviour
             // Diz que está infectado
             isInfected = true;
             // Seta a tag para Enemy
-            gameObject.tag = "Enemy";
+            navMeshObject.tag = "Enemy";
             // Transforma em infectado
             Transformation();
             //Inicializa o timer de infectado
