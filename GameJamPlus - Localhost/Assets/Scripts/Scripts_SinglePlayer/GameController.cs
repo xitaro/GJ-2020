@@ -10,11 +10,18 @@ public class GameController : MonoBehaviour
     [SerializeField] private float startTimeToInfect;
     private float timeToInfect;
 
+    bool stopInfect = false;
+
     private void Start()
     {
-        players = new List<GameObject>();
+        //players = new List<GameObject>();
         // Inicializa o tempo para infectar o primeiro player
         timeToInfect = startTimeToInfect;
+    }
+
+    private void Update()
+    {
+        InfectSomeone();
     }
 
     // Função para infectar alguém no inicio
@@ -22,10 +29,12 @@ public class GameController : MonoBehaviour
     {
         timeToInfect -= Time.deltaTime;
 
-        if(timeToInfect == 0)
+        if(timeToInfect <= 0 && !stopInfect)
         {
-            int rand = Random.Range(0, players.Count);
+            int rand = Random.Range(1, players.Count);
             players[rand].gameObject.tag = "Enemy";
+            stopInfect = true;
         }
+
     }
 }

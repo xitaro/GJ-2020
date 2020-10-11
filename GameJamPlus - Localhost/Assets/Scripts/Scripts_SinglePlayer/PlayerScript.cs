@@ -35,6 +35,7 @@ public class PlayerScript : MonoBehaviour
         {
             // Contagem regressiva para morrer
             CountDown();
+            Transformation();
         }       
     }
 
