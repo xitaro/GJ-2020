@@ -20,6 +20,9 @@ public class Bot : MonoBehaviour
 
     [Header("Infected")]
     [SerializeField] private bool isInfected;
+    private bool canShoot = true;
+    public GameObject prefBala;
+    public Transform fireTransform;
 
     [Header("References")]
     [SerializeField] private Animator anim;
@@ -36,9 +39,7 @@ public class Bot : MonoBehaviour
     GameObject player;
     GameObject Enemy;
 
-    private bool canShoot = true;
-    public GameObject prefBala;
-    public Transform fireTransform;
+   
    
     
 
@@ -90,9 +91,8 @@ public class Bot : MonoBehaviour
     }
 
     void cassando()
-    {
-        
-        navAgent.speed = 5f;
+    {  
+        navAgent.speed = 7f;
 
         if (B == true)
         {
@@ -104,7 +104,7 @@ public class Bot : MonoBehaviour
             }
             if (Vector3.Distance(transform.position, target.position) < 3f)
             {
-                actualPoint = Random.Range(0, 21);
+                actualPoint = Random.Range(0, 20);
             }
         }
         //GameObject[] playerss = GameObject.FindGameObjectsWithTag("Player");
