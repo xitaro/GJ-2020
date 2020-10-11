@@ -8,17 +8,17 @@ using UnityEngine.AI;
 public class Bot : MonoBehaviour
 {
     
-    public Transform[] points;
+    //public Transform[] points;
     private int nextpoint;
     private Transform target;
     private float DistancePerception = 50;
     public GameObject Skin1, Skin2;
    
     private bool chasing,test=true;
-    private float visionEnemy = 360f, distance=100f,actual, distanceP=100,DistanceE=100;
+    private float visionEnemy = 360f, distance=100f, distanceP=40;
     private int actualPoint = 0;
     public float time;
-    public List<GameObject> goList;
+    public List<GameObject> goList,Pointss;
 
     private Transform lastPlayerSee;
     public  NavMeshAgent navAgent;
@@ -38,7 +38,7 @@ public class Bot : MonoBehaviour
     {
        
         actualPoint = Random.Range(0, 4);
-        target = points[actualPoint];
+        target = Pointss[actualPoint].transform;
     }
 
     // Update is called once per frame
@@ -74,7 +74,7 @@ public class Bot : MonoBehaviour
 
         if (B == true)
         {
-            target = points[actualPoint];
+            target = Pointss[actualPoint].transform;
             if (Vector3.Distance(transform.position, target.position) > 3f)
             {
                 ///actualPoint = Random.Range(1, 10);
@@ -161,7 +161,7 @@ public class Bot : MonoBehaviour
     void moving()
     {
 
-        
+        int Co = Pointss.Count;
         if (Vector3.Distance(transform.position, target.position) > 1.5f)
         {
             ///actualPoint = Random.Range(1, 10);
@@ -169,12 +169,12 @@ public class Bot : MonoBehaviour
         }
         if (Vector3.Distance(transform.position, target.position) < 1.5f)
         {
-            actualPoint = Random.Range(0, 21);
-            target = points[actualPoint];
+            actualPoint = Random.Range(0, Co);
+            target = Pointss[actualPoint].transform;
         }
 
         //GameObject Enemy;
-
+        
         bool C = false;
         //GameObject[] players = GameObject.FindGameObjectsWithTag("Enemy");
         // player.Add(GameObject.FindGameObjectWithTag("Player"));
@@ -205,16 +205,16 @@ public class Bot : MonoBehaviour
 
                 if (((hit.collider.gameObject.CompareTag("Enemy")) && (angle < visionEnemy)))
                 {
-                    for (int i = 0; i < 21; i++)
+                    for (int i = 0; i < Co; i++)
                     {
-                        actual = Vector3.Distance(Enemy.transform.position, target.position);
-
-                        if (Vector3.Distance(Enemy.transform.position, points[i].position) >= actual)
-                        {
-                            if (Vector3.Distance(Enemy.transform.position, points[i].position) > distance)
-                                target = points[i];
-                        }
-                        distance = Vector3.Distance(Enemy.transform.position, points[i].position);
+           
+                    if (Vector3.Distance(Enemy.transform.position, Pointss[i].transform.position) > distance)
+                    {
+                        target = Pointss[i].transform;
+                    }
+                    
+                        distance = Vector3.Distance(Enemy.transform.position, Pointss[i].transform.position);
+                        C = false;
 
                     }
 
