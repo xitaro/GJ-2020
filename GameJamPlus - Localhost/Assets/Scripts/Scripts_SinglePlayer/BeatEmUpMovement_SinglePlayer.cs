@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 //using Mirror;
@@ -8,7 +9,6 @@ public class BeatEmUpMovement_SinglePlayer : MonoBehaviour//NetworkBehaviour
     [Header("Components")]
     [SerializeField] private Animator anim;
     private CharacterController controller;
-    [SerializeField] private Joystick joystick;
 
 
     [Header("Logic")]
@@ -34,6 +34,11 @@ public class BeatEmUpMovement_SinglePlayer : MonoBehaviour//NetworkBehaviour
     [SerializeField] private float innerVerticalOffset = 0.25f;
     [SerializeField] private float distanceGrounded = 0.15f;
     [SerializeField] private float slopeThreshold = 0.55f;
+    
+    [Header("Fire")]
+    public bool canShoot = false;
+    public GameObject prefBala;
+    public Transform fireTransform;
 
     private void Awake()
     {
@@ -43,14 +48,38 @@ public class BeatEmUpMovement_SinglePlayer : MonoBehaviour//NetworkBehaviour
     //[Client]
     private void Update()
     {
+        if (gameObject.tag == "Enemy")
+        {
+            canShoot = true;
+        }
+
+        if (canShoot == true)
+        {
+            //Input to Fire TROCAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            if (Input.GetKeyDown(KeyCode.T))
+            {
+                canShoot = false;
+                Invoke("Fire", 2f);
+                
+            }
+        }
+
        // if (!hasAuthority) { return; }
 
         //Look at which key the user is pressing, store it
-        //Vector3 inputVector = PoolInput();
+        Vector3 inputVector = PoolInput();
 
         //Multiply the inputs with the speed, and switch Y & Z
-         moveVector = new Vector3(joystick.Horizontal, 0, joystick.Vertical);
-         Rotate(moveVector);
+        /*moveVector = new Vector3(inputVector.x, 0, inputVector.y);
+        Rotate(moveVector);*/
+
+        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        controller.Move(move * Time.deltaTime * 10);
+
+        if (move != Vector3.zero)
+        {
+            gameObject.transform.forward = move;
+        }
 
         // Store it in a variable, so we don't call it more than once per frame
         isGrounded = Grounded();
@@ -62,7 +91,9 @@ public class BeatEmUpMovement_SinglePlayer : MonoBehaviour//NetworkBehaviour
             // If spacebar, apply high negative gravity, and forget about the floor
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                Jump();
+                verticalVelocity = jumpForce;
+                //reset the slope normal
+                slopeNormal = Vector3.up;
             }
         }
         else //if not on the floor
@@ -76,12 +107,26 @@ public class BeatEmUpMovement_SinglePlayer : MonoBehaviour//NetworkBehaviour
             if (verticalVelocity < -terminalVelocity)
                 verticalVelocity = -terminalVelocity;
         }
+        /*
 
         // Apply verticalVelocity to our movement vector
         moveVector.y = verticalVelocity;
 
         // If we're on the floor, angle our vector to match its curves
-        if (slopeNormal != Vector3.up) moveVector = FollowFloor(moveVector);
+        if (slopeNormal != Vector3.up) moveVector = FollowFloor(moveVector);*/
+    }
+
+    void Fire()
+    {
+        //Atira
+        Instantiate(prefBala,fireTransform.position, fireTransform.rotation);
+        Invoke("FireAgain", 10f);
+
+    }
+    void FireAgain()
+    {
+        //Colocar uma imagem que pode atirar de novo!
+        canShoot = true;
     }
 
     private void FixedUpdate()
@@ -104,13 +149,6 @@ public class BeatEmUpMovement_SinglePlayer : MonoBehaviour//NetworkBehaviour
         r.x = Input.GetAxisRaw("Horizontal");
         r.y = Input.GetAxisRaw("Vertical");
         return r.normalized;
-    }
-
-    public void Jump()
-    {
-        verticalVelocity = jumpForce;
-        //reset the slope normal
-        slopeNormal = Vector3.up;
     }
 
     private Vector3 FollowFloor(Vector3 moveVector)
@@ -177,4 +215,6 @@ public class BeatEmUpMovement_SinglePlayer : MonoBehaviour//NetworkBehaviour
         return false;
 
     }
+
+
 }
