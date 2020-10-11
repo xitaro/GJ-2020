@@ -66,6 +66,8 @@ public class Bot : MonoBehaviour
 
     void cassando()
     {
+        navAgent.speed = 2f;
+
         if (B == true)
         {
             target = points[actualPoint];
