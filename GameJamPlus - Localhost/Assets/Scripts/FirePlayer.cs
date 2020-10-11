@@ -32,5 +32,10 @@ public class FirePlayer : MonoBehaviour
         {
             collision.gameObject.transform.tag = "Enemy";
         }
+
+        if (collision.gameObject.tag == "Ground")
+        {
+            rbBala.isKinematic = true;
+        }
     }
 }
