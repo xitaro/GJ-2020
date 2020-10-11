@@ -238,10 +238,10 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 5000
+  far clip plane: 6000
   field of view: 10
   orthographic: 1
-  orthographic size: 15
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -265,7 +265,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 66015020}
   m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 136.9, y: 1.6243687, z: -22.061504}
+  m_LocalPosition: {x: 136.89952, y: 13.968928, z: -34.56745}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -514,9 +514,9 @@ MonoBehaviour:
   m_Follow: {fileID: 1996124617}
   m_Lens:
     FieldOfView: 10
-    OrthographicSize: 15
+    OrthographicSize: 10
     NearClipPlane: 0.1
-    FarClipPlane: 5000
+    FarClipPlane: 6000
     Dutch: 0
     LensShift: {x: 0, y: 0}
   m_Transitions:
@@ -535,7 +535,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 181543300}
   m_LocalRotation: {x: 0.38268343, y: -0, z: -0, w: 0.92387956}
-  m_LocalPosition: {x: 136.9, y: 8.4, z: -29}
+  m_LocalPosition: {x: 136.89952, y: 13.968928, z: -34.56745}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1364204215}
@@ -1836,21 +1836,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6652366724473753722, guid: c2fc5830362104f47bbfedc04b5be7f2,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6652366724473753722, guid: c2fc5830362104f47bbfedc04b5be7f2,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6652366724473753722, guid: c2fc5830362104f47bbfedc04b5be7f2,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6778358783130597146, guid: c2fc5830362104f47bbfedc04b5be7f2,
         type: 3}
@@ -3203,7 +3188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ad980451443d70438faac0bc6c235a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TrackedObjectOffset: {x: 0, y: 0.20000175, z: 0.20000169}
+  m_TrackedObjectOffset: {x: -0.0004730306, y: 0.2008145, z: 0.2006634}
   m_LookaheadTime: 0
   m_LookaheadSmoothing: 0
   m_LookaheadIgnoreY: 0
@@ -3213,7 +3198,7 @@ MonoBehaviour:
   m_TargetMovementOnly: 1
   m_ScreenX: 0.5
   m_ScreenY: 0.5
-  m_CameraDistance: 9.999999
+  m_CameraDistance: 17.8745
   m_DeadZoneWidth: 0
   m_DeadZoneHeight: 0
   m_DeadZoneDepth: 0
