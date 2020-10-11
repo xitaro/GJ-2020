@@ -11,14 +11,15 @@ public class Bot : MonoBehaviour
     public Transform[] points;
     private int nextpoint;
     private Transform target;
-    private float DistancePerception = 30;
+    private float DistancePerception = 50;
     public GameObject Skin1, Skin2;
    
-    private bool chasing;
+    private bool chasing,test=true;
     private float visionEnemy = 360f, distance=100f,actual, distanceP=100,DistanceE=100;
     private int actualPoint = 0;
     public float time;
- 
+    public List<GameObject> goList;
+
     private Transform lastPlayerSee;
     public  NavMeshAgent navAgent;
     private bool B=true;
@@ -69,7 +70,7 @@ public class Bot : MonoBehaviour
     {
         Skin1.SetActive(false);
         Skin2.SetActive(true);
-        navAgent.speed = 2f;
+        navAgent.speed = 5f;
 
         if (B == true)
         {
@@ -84,18 +85,23 @@ public class Bot : MonoBehaviour
                 actualPoint = Random.Range(0, 21);
             }
         }
-        GameObject[] playerss = GameObject.FindGameObjectsWithTag("Player");
+        //GameObject[] playerss = GameObject.FindGameObjectsWithTag("Player");
         // player.Add(GameObject.FindGameObjectWithTag("Player"));
         int L;
-        L = playerss.Length;
-        for (int A = 0; A < L; A++)
-        {  
-                if (Vector3.Distance(transform.position, playerss[A].transform.position) < distanceP)
-                    player = playerss[A];
-            
-            distanceP = Vector3.Distance(transform.position, playerss[A].transform.position);
+        L = goList.Count;
+        //if (test)
+        //{
+            for (int A = 0; A < L; A++)
+            {
+                if (Vector3.Distance(transform.position, goList[A].transform.position) < distanceP && goList[A].transform.tag=="Player")
+                {
+                    player = goList[A];
+                }
 
-        }
+                distanceP = Vector3.Distance(transform.position, goList[A].transform.position);
+
+            }
+        //}
 
 
         Vector3 direction = player.transform.position - navAgent.transform.position;
@@ -115,7 +121,7 @@ public class Bot : MonoBehaviour
                 chasing = true;
                 B = false;
                 //Atirar
-               
+                test = false;
                 if (canShoot == true) {
                     Invoke("Fire", 2f);
                     canShoot = false;
@@ -135,6 +141,7 @@ public class Bot : MonoBehaviour
     }
     void Ronda()
     {
+        test = true;
         B = true;
     }
 
@@ -168,45 +175,53 @@ public class Bot : MonoBehaviour
 
         //GameObject Enemy;
 
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Enemy");
+        bool C = false;
+        //GameObject[] players = GameObject.FindGameObjectsWithTag("Enemy");
         // player.Add(GameObject.FindGameObjectWithTag("Player"));
         int L;
-        L = players.Length;
+        //L = players.Length;
+        L = goList.Count;
         for (int A = 0; A < L; A++)
         {
-            if (Vector3.Distance(transform.position, players[A].transform.position) < DistanceE)
-                Enemy = players[A];
+            if (Vector3.Distance(transform.position, goList[A].transform.position) < distanceP && goList[A].transform.tag == "Enemy")
+            {
+                Enemy = goList[A];
+                C = true;
+            }
 
-            DistanceE = Vector3.Distance(transform.position, players[A].transform.position);
+            distanceP = Vector3.Distance(transform.position, goList[A].transform.position);
 
         }
 
-        Vector3 direction = Enemy.transform.position - navAgent.transform.position;
-        float angle = Vector3.Angle(direction, transform.forward);
-        float DistancePlayer = Vector3.Distance(Enemy.transform.position, navAgent.transform.position);
-        RaycastHit hit;
-
-        if (Physics.Raycast(transform.position, direction, out hit, 1000) && DistancePlayer < DistancePerception)
+        if (C)
         {
-            
-            if (((hit.collider.gameObject.CompareTag("Enemy")) && (angle < visionEnemy)))
-            {
-                for(int i=0;i<21;i++)
-                {   
-                    actual= Vector3.Distance(Enemy.transform.position, target.position);
+            Vector3 direction = Enemy.transform.position - navAgent.transform.position;
+            float angle = Vector3.Angle(direction, transform.forward);
+            float DistancePlayer = Vector3.Distance(Enemy.transform.position, navAgent.transform.position);
+            RaycastHit hit;
 
-                    if (Vector3.Distance(Enemy.transform.position, points[i].position)>= actual)
+            if (Physics.Raycast(transform.position, direction, out hit, 1000) && DistancePlayer < DistancePerception)
+            {
+
+                if (((hit.collider.gameObject.CompareTag("Enemy")) && (angle < visionEnemy)))
+                {
+                    for (int i = 0; i < 21; i++)
                     {
-                        if(Vector3.Distance(Enemy.transform.position, points[i].position)>distance)
-                        target = points[i];
+                        actual = Vector3.Distance(Enemy.transform.position, target.position);
+
+                        if (Vector3.Distance(Enemy.transform.position, points[i].position) >= actual)
+                        {
+                            if (Vector3.Distance(Enemy.transform.position, points[i].position) > distance)
+                                target = points[i];
+                        }
+                        distance = Vector3.Distance(Enemy.transform.position, points[i].position);
+
                     }
-                    distance = Vector3.Distance(Enemy.transform.position, points[i].position);
 
                 }
 
+
             }
-
-
         }
     }
   
