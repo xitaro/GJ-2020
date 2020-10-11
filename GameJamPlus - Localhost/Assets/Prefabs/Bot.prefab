@@ -135,8 +135,9 @@ MonoBehaviour:
   Skin1: {fileID: 8240150776741663495}
   Skin2: {fileID: 8977402351286506920}
   time: 6
+  goList: []
   navAgent: {fileID: 6340468467574735158}
-  prefBala: {fileID: 4855102141434216494, guid: e46e46c6333c1084a9eb794342cb3125,
+  prefBala: {fileID: 7434861789426815142, guid: be729a406204a25489fb9ce990199966,
     type: 3}
   fireTransform: {fileID: 6340468466312385661}
 --- !u!65 &6340468467574735159
@@ -166,7 +167,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1

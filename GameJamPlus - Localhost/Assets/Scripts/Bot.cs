@@ -148,7 +148,7 @@ public class Bot : MonoBehaviour
     void Fire()
     {
         //Atira
-        Instantiate(prefBala, new Vector3(fireTransform.position.x, fireTransform.position.y, fireTransform.position.z), Quaternion.identity);
+        Instantiate(prefBala,fireTransform.position, fireTransform.rotation);
         Invoke("FireAgain", 10f);
 
     }
