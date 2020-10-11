@@ -11,12 +11,14 @@ public class MenuScript : MonoBehaviour
     public GameObject BtnOpcoes;
     public GameObject BtnAbout;
     public GameObject BtnReturn;
+    public GameObject SettingPanel;
 
     // Start is called before the first frame update
     void Start()
     {
         menuAnimator = gameObject.GetComponent<Animator>();
         BtnReturn.SetActive(false);
+        SettingPanel.SetActive(false);
     }
 
     public void Play()
@@ -32,40 +34,64 @@ public class MenuScript : MonoBehaviour
         BtnPlay.SetActive(false);
         BtnAbout.SetActive(false);
         BtnReturn.SetActive(true);
+        SettingPanel.SetActive(true);
     }
 
     public void Return()
     {
         if (menuAnimator.GetBool("IsSettings") == true)
         {
-            menuAnimator.SetBool("IsSettings", false);          
-            BtnReturn.SetActive(false);
-            BtnOpcoes.SetActive(true);
-            Title.SetActive(true);
-            BtnPlay.SetActive(true);
-            BtnAbout.SetActive(true);
+    
+            StartCoroutine(Waiter1());
+         
         }
-        else
+        else //isabout
         {
-            menuAnimator.SetBool("IsAbout", false);         
-            BtnReturn.SetActive(false);
-            BtnAbout.SetActive(true);
-            Title.SetActive(true);
-            BtnPlay.SetActive(true);
-            BtnAbout.SetActive(true);
-            BtnOpcoes.SetActive(true);
+            StartCoroutine(Waiter2());
+
         }
     }
 
     public void About()
     {       
-        menuAnimator.SetBool("IsAbout", true);    
+        menuAnimator.SetBool("IsAbout", true);
         BtnOpcoes.SetActive(false);
         Title.SetActive(false);
         BtnPlay.SetActive(false);
         BtnAbout.SetActive(false);
         BtnReturn.SetActive(true);
-    }       
+
+    }
+
+    IEnumerator Waiter1()
+    {
+        BtnReturn.SetActive(false);
+        SettingPanel.SetActive(false);
+        menuAnimator.SetBool("IsSettings", false);
+
+        yield return new WaitForSeconds(0.5f);  
+        
+        BtnOpcoes.SetActive(true);
+        Title.SetActive(true);
+        BtnPlay.SetActive(true);
+        BtnAbout.SetActive(true);
+
+    }
+
+    IEnumerator Waiter2()
+    {
+        BtnReturn.SetActive(false);
+        menuAnimator.SetBool("IsAbout", false);
+
+        yield return new WaitForSeconds(0.5f);
+
+        BtnAbout.SetActive(true);
+        Title.SetActive(true);
+        BtnPlay.SetActive(true);
+        BtnAbout.SetActive(true);
+        BtnOpcoes.SetActive(true);
+
+    }
 }
   
 
