@@ -1,5 +1,4 @@
-﻿//using Packages.Rider.Editor.UnitTesting;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
@@ -39,16 +38,17 @@ public class Bot : MonoBehaviour
     GameObject player;
     GameObject Enemy;
 
-    public GameController _gameController;
+   
+   
+    
 
-
+    
     // Start is called before the first frame update
     void Start()
     {
        
         actualPoint = Random.Range(0, 4);
         target = Pointss[actualPoint].transform;
-        _gameController = FindObjectOfType<GameController>();
     }
 
     // Update is called once per frame
@@ -92,8 +92,7 @@ public class Bot : MonoBehaviour
     void cassando()
     {  
         navAgent.speed = 7f;
-        int Co;
-        Co = Pointss.Count;
+
         if (B == true)
         {
             target = Pointss[actualPoint].transform;
@@ -104,7 +103,7 @@ public class Bot : MonoBehaviour
             }
             if (Vector3.Distance(transform.position, target.position) < 3f)
             {
-                actualPoint = Random.Range(0, Co);
+                actualPoint = Random.Range(0, 20);
             }
         }
         //GameObject[] playerss = GameObject.FindGameObjectsWithTag("Player");
@@ -268,8 +267,6 @@ public class Bot : MonoBehaviour
             isInfected = true;
             // Seta a tag para Enemy
             this.gameObject.tag = "Enemy";
-            // Aumenta o tempo
-            _gameController.timeInfectado += 10f;
         }
     }
 
