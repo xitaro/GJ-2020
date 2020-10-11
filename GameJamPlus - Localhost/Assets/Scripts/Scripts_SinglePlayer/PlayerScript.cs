@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -22,7 +23,14 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private bool isInfected;
     [SerializeField] private float startInfectedTime = 10f;
     private float infectedTime;
-    
+
+    [Header("Lose Condiction")]
+    public GameObject painelLose;
+
+    public void Start()
+    {
+        Time.timeScale = 1;
+    }
 
     private void Update()
     {
@@ -103,7 +111,20 @@ public class PlayerScript : MonoBehaviour
         infectedSkin.SetActive(true);
         //Troca animator
         movementScript.anim = infectedSkin.GetComponent<Animator>();
+        //JOGO SIMPLIFICADO VC MORREU
+        Invoke("YouLOSE", 5f);
         
+    }
+
+    void YouLOSE()
+    {
+        //VOCE PERDEU! JOGO SIMPLIFICADO
+
+        //Parar o tempo sem perder as funçoes dos botoes
+        Time.timeScale = 0.000000000000000001f;
+        //Chama painel de derrota
+
+
     }
 
     private void OnCollisionEnter(Collision collision)

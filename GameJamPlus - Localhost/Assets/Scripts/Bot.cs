@@ -39,17 +39,16 @@ public class Bot : MonoBehaviour
     GameObject player;
     GameObject Enemy;
 
-   
-   
-    
+    public GameController _gameController;
 
-    
+
     // Start is called before the first frame update
     void Start()
     {
        
         actualPoint = Random.Range(0, 4);
         target = Pointss[actualPoint].transform;
+        _gameController = FindObjectOfType<GameController>();
     }
 
     // Update is called once per frame
@@ -269,6 +268,8 @@ public class Bot : MonoBehaviour
             isInfected = true;
             // Seta a tag para Enemy
             this.gameObject.tag = "Enemy";
+            // Aumenta o tempo
+            _gameController.timeInfectado += 10f;
         }
     }
 
