@@ -17,7 +17,7 @@ public class fireScript : MonoBehaviour
 
     public void Start()
     {
-        rbBala.AddForce(_bot.transform.forward * explosionForce, ForceMode.Impulse);
+        rbBala.AddForce(transform.forward * explosionForce, ForceMode.Impulse);
     }
 
     private void OnCollisionEnter(Collision collision)

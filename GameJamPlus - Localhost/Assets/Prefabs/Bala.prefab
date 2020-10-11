@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rbBala: {fileID: 4855102141434216493}
-  explosionForce: 20
+  explosionForce: 30
   _bot: {fileID: 0}
 --- !u!208 &4787682547422331714
 NavMeshObstacle:
