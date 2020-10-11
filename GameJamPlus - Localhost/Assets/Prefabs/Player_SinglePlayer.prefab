@@ -4842,6 +4842,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
+  joystick: {fileID: 0}
   speed: 5
   speedX: 5
   speedY: 5
@@ -4852,12 +4853,6 @@ MonoBehaviour:
   innerVerticalOffset: 0.25
   distanceGrounded: 0.15
   slopeThreshold: 0.55
-  canShoot: 0
-  prefBala: {fileID: 7434861789426815142, guid: be729a406204a25489fb9ce990199966,
-    type: 3}
-  fireTransform: {fileID: 1874780644}
-  Skin1: {fileID: 3052617896366279787}
-  Skin2: {fileID: 852961647530791701}
 --- !u!143 &8691182298422507497
 CharacterController:
   m_ObjectHideFlags: 0
@@ -5243,6 +5238,21 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: -720192646010840252, guid: 6fc1fc634d7cc3d43a24a04db75c6440,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: aeabb7a0481a3e34e9180c2ee48dcef9, type: 2}
+    - target: {fileID: -720192646010840252, guid: 6fc1fc634d7cc3d43a24a04db75c6440,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 151d81e4e0e16b14491688108794c5ca, type: 2}
+    - target: {fileID: -720192646010840252, guid: 6fc1fc634d7cc3d43a24a04db75c6440,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: ae66b5c74177b884a8ea031a92b9f0fb, type: 2}
     - target: {fileID: 919132149155446097, guid: 6fc1fc634d7cc3d43a24a04db75c6440,
         type: 3}
       propertyPath: m_Name
@@ -5250,12 +5260,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fc1fc634d7cc3d43a24a04db75c6440, type: 3}
---- !u!1 &3052617896366279787 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6fc1fc634d7cc3d43a24a04db75c6440,
-    type: 3}
-  m_PrefabInstance: {fileID: 2782232931691966778}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2384307875080689361 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6fc1fc634d7cc3d43a24a04db75c6440,
