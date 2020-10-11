@@ -117,7 +117,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1874780643}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.985, z: 1.2}
+  m_LocalPosition: {x: 0, y: 2.12, z: 1.88}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6652366724473753722}
@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 6778358783130597146}
   - component: {fileID: 8691182298422507497}
   - component: {fileID: 1016370984}
+  - component: {fileID: 75822198677743958}
   m_Layer: 0
   m_Name: Player_SinglePlayer
   m_TagString: Untagged
@@ -179,7 +180,7 @@ MonoBehaviour:
   speedY: 5
   gravity: 0.25
   terminalVelocity: 5
-  jumpForce: 8
+  jumpForce: 5
   extremitiesOffset: 0.05
   innerVerticalOffset: 0.25
   distanceGrounded: 0.15
@@ -214,6 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2cb34d2e31ec514cbdef4bf7f0870a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementScript: {fileID: 0}
   bulletPrefab: {fileID: 7434861789426815142, guid: be729a406204a25489fb9ce990199966,
     type: 3}
   transformForward: {fileID: 1874780644}
@@ -222,6 +224,20 @@ MonoBehaviour:
   navMeshObject: {fileID: 63374811}
   isInfected: 0
   startInfectedTime: 10
+--- !u!136 &75822198677743958
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5700103601158196648}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.669646
+  m_Height: 3.133694
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.5773004, z: 0}
 --- !u!1001 &1811958963
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ using UnityEngine;
 public class BeatEmUpMovement_SinglePlayer : MonoBehaviour//NetworkBehaviour
 {
     [Header("Components")]
-    [SerializeField] private Animator anim;
+    public Animator anim;
     private CharacterController controller;
     [SerializeField] private Joystick joystick;
 
@@ -87,10 +87,10 @@ if (isGrounded)
     verticalVelocity = -1;
 
     // If spacebar, apply high negative gravity, and forget about the floor
-    if (Input.GetKeyDown(KeyCode.Space))
+    /*if (Input.GetKeyDown(KeyCode.Space))
     {
         Jump();
-    }
+    }*/
 }
 else //if not on the floor
 {
@@ -119,13 +119,13 @@ if (slopeNormal != Vector3.up) moveVector = FollowFloor(moveVector);
         controller.Move(moveVector * speed * Time.deltaTime);
     }
 
-    public void Jump()
+    /*public void Jump()
 {
 verticalVelocity = jumpForce;
 //reset the slope normal
 slopeNormal = Vector3.up;
 }
-
+    */
 
 public void Rotate()
 {
