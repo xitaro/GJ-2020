@@ -141,7 +141,7 @@ public class Bot : MonoBehaviour
     }
     void Ronda()
     {
-        test = true;
+       // test = true;
         B = true;
     }
 
