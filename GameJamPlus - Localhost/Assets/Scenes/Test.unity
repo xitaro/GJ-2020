@@ -121,6 +121,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 2c7d3cc53f842cd43a4b6bcab521e73a, type: 2}
+--- !u!1 &63374811 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 63374811, guid: c2fc5830362104f47bbfedc04b5be7f2,
+    type: 3}
+  m_PrefabInstance: {fileID: 777736671}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &66015020
 GameObject:
   m_ObjectHideFlags: 0
@@ -759,7 +765,7 @@ PrefabInstance:
     - target: {fileID: 6340468467574735152, guid: 65397de107ccfa74885d15806d7fab37,
         type: 3}
       propertyPath: goList.Array.size
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6340468467574735152, guid: 65397de107ccfa74885d15806d7fab37,
         type: 3}
@@ -962,6 +968,11 @@ PrefabInstance:
       propertyPath: Pointss.Array.data[9]
       value: 
       objectReference: {fileID: 2044356865}
+    - target: {fileID: 6340468467574735152, guid: 65397de107ccfa74885d15806d7fab37,
+        type: 3}
+      propertyPath: goList.Array.data[7]
+      value: 
+      objectReference: {fileID: 63374811}
     - target: {fileID: 6340468467574735153, guid: 65397de107ccfa74885d15806d7fab37,
         type: 3}
       propertyPath: m_Enabled
@@ -1074,7 +1085,7 @@ PrefabInstance:
     - target: {fileID: 6340468467574735152, guid: 65397de107ccfa74885d15806d7fab37,
         type: 3}
       propertyPath: goList.Array.size
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6340468467574735152, guid: 65397de107ccfa74885d15806d7fab37,
         type: 3}
@@ -1271,6 +1282,11 @@ PrefabInstance:
       propertyPath: Pointss.Array.data[9]
       value: 
       objectReference: {fileID: 1097831988}
+    - target: {fileID: 6340468467574735152, guid: 65397de107ccfa74885d15806d7fab37,
+        type: 3}
+      propertyPath: goList.Array.data[7]
+      value: 
+      objectReference: {fileID: 63374811}
     - target: {fileID: 6340468467574735155, guid: 65397de107ccfa74885d15806d7fab37,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1368,7 +1384,7 @@ PrefabInstance:
     - target: {fileID: 6340468467574735152, guid: 65397de107ccfa74885d15806d7fab37,
         type: 3}
       propertyPath: goList.Array.size
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6340468467574735152, guid: 65397de107ccfa74885d15806d7fab37,
         type: 3}
@@ -1565,6 +1581,11 @@ PrefabInstance:
       propertyPath: Pointss.Array.data[9]
       value: 
       objectReference: {fileID: 1289828079}
+    - target: {fileID: 6340468467574735152, guid: 65397de107ccfa74885d15806d7fab37,
+        type: 3}
+      propertyPath: goList.Array.data[7]
+      value: 
+      objectReference: {fileID: 63374811}
     - target: {fileID: 6340468467574735155, guid: 65397de107ccfa74885d15806d7fab37,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2067,7 +2088,7 @@ PrefabInstance:
     - target: {fileID: 6340468467574735152, guid: 65397de107ccfa74885d15806d7fab37,
         type: 3}
       propertyPath: goList.Array.size
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6340468467574735152, guid: 65397de107ccfa74885d15806d7fab37,
         type: 3}
@@ -2264,6 +2285,11 @@ PrefabInstance:
       propertyPath: Pointss.Array.data[9]
       value: 
       objectReference: {fileID: 1289828079}
+    - target: {fileID: 6340468467574735152, guid: 65397de107ccfa74885d15806d7fab37,
+        type: 3}
+      propertyPath: goList.Array.data[7]
+      value: 
+      objectReference: {fileID: 63374811}
     - target: {fileID: 6340468467574735155, guid: 65397de107ccfa74885d15806d7fab37,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2361,7 +2387,7 @@ PrefabInstance:
     - target: {fileID: 6340468467574735152, guid: 65397de107ccfa74885d15806d7fab37,
         type: 3}
       propertyPath: goList.Array.size
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6340468467574735152, guid: 65397de107ccfa74885d15806d7fab37,
         type: 3}
@@ -2558,6 +2584,11 @@ PrefabInstance:
       propertyPath: Pointss.Array.data[9]
       value: 
       objectReference: {fileID: 1289828079}
+    - target: {fileID: 6340468467574735152, guid: 65397de107ccfa74885d15806d7fab37,
+        type: 3}
+      propertyPath: goList.Array.data[7]
+      value: 
+      objectReference: {fileID: 63374811}
     - target: {fileID: 6340468467574735155, guid: 65397de107ccfa74885d15806d7fab37,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2721,7 +2752,7 @@ PrefabInstance:
     - target: {fileID: 6340468467574735152, guid: 65397de107ccfa74885d15806d7fab37,
         type: 3}
       propertyPath: goList.Array.size
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6340468467574735152, guid: 65397de107ccfa74885d15806d7fab37,
         type: 3}
@@ -2918,6 +2949,11 @@ PrefabInstance:
       propertyPath: Pointss.Array.data[9]
       value: 
       objectReference: {fileID: 1097831988}
+    - target: {fileID: 6340468467574735152, guid: 65397de107ccfa74885d15806d7fab37,
+        type: 3}
+      propertyPath: goList.Array.data[7]
+      value: 
+      objectReference: {fileID: 63374811}
     - target: {fileID: 6340468467574735153, guid: 65397de107ccfa74885d15806d7fab37,
         type: 3}
       propertyPath: m_Enabled
@@ -3215,7 +3251,7 @@ PrefabInstance:
     - target: {fileID: 6340468467574735152, guid: 65397de107ccfa74885d15806d7fab37,
         type: 3}
       propertyPath: goList.Array.size
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6340468467574735152, guid: 65397de107ccfa74885d15806d7fab37,
         type: 3}
@@ -3412,6 +3448,11 @@ PrefabInstance:
       propertyPath: Pointss.Array.data[9]
       value: 
       objectReference: {fileID: 1289828079}
+    - target: {fileID: 6340468467574735152, guid: 65397de107ccfa74885d15806d7fab37,
+        type: 3}
+      propertyPath: goList.Array.data[7]
+      value: 
+      objectReference: {fileID: 63374811}
     - target: {fileID: 6340468467574735155, guid: 65397de107ccfa74885d15806d7fab37,
         type: 3}
       propertyPath: m_LocalPosition.x
