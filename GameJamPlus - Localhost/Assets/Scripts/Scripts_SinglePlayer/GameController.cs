@@ -19,10 +19,20 @@ public class GameController : MonoBehaviour
 
     bool stopInfect = false;
 
+    [Header("Time Infectado")]
     public float timeInfectado = 180f;
+
+
+    [Header("PlayerWin Condiction")]
+    public GameObject panelWin;
+
 
     private void Start()
     {
+        //panel de vitoria desligado
+        panelWin.SetActive(false);
+        //Tempo escala normal
+        Time.timeScale = 1;
         //players = new List<GameObject>();
         // Inicializa o tempo para infectar o primeiro player
         timeToInfect = startTimeToInfect;
@@ -46,8 +56,17 @@ public class GameController : MonoBehaviour
             //SIMPLIFICANDO... O PLAYER GANHOU!
             // infectado perde e todos infectados morrem  
             // Tela GameOver, sobreviventes Wins
-            
+            Invoke("playerWIN", 2f);
         }
+
+    }
+
+    void pplayerWin()
+    {
+        //chama painel de vitoria
+        panelWin.SetActive(true);
+        // congela o jogo 
+        Time.timeScale = 0.00000000000000000001f;
 
     }
 

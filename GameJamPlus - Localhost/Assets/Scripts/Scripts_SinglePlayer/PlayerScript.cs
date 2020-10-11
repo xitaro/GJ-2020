@@ -29,7 +29,10 @@ public class PlayerScript : MonoBehaviour
 
     public void Start()
     {
+        //Tempo do jogo normal
         Time.timeScale = 1;
+        //painel de derrota desativado
+        painelLose.SetActive(false);
     }
 
     private void Update()
@@ -123,6 +126,7 @@ public class PlayerScript : MonoBehaviour
         //Parar o tempo sem perder as funçoes dos botoes
         Time.timeScale = 0.000000000000000001f;
         //Chama painel de derrota
+        painelLose.SetActive(true);
 
 
     }
