@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -17,8 +19,20 @@ public class GameController : MonoBehaviour
 
     bool stopInfect = false;
 
+    [Header("Time Infectado")]
+    public float timeInfectado = 180f;
+
+
+    [Header("PlayerWin Condiction")]
+    public GameObject panelWin;
+
+
     private void Start()
     {
+        //panel de vitoria desligado
+        panelWin.SetActive(false);
+        //Tempo escala normal
+        Time.timeScale = 1;
         //players = new List<GameObject>();
         // Inicializa o tempo para infectar o primeiro player
         timeToInfect = startTimeToInfect;
@@ -27,6 +41,8 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
+        timeInfectado -= Time.deltaTime;
+
         InfectSomeone();
 
         // Se o jogo começou
@@ -34,6 +50,24 @@ public class GameController : MonoBehaviour
         {
             CountDown();
         }
+
+        if (timeInfectado <= 0)
+        {
+            //SIMPLIFICANDO... O PLAYER GANHOU!
+            // infectado perde e todos infectados morrem  
+            // Tela GameOver, sobreviventes Wins
+            Invoke("playerWIN", 2f);
+        }
+
+    }
+
+    void pplayerWin()
+    {
+        //chama painel de vitoria
+        panelWin.SetActive(true);
+        // congela o jogo 
+        Time.timeScale = 0.00000000000000000001f;
+
     }
 
     // Função para infectar alguém no inicio
