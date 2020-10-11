@@ -7,14 +7,14 @@ public class fireScript : MonoBehaviour
     public Rigidbody rbBala;
     public float explosionForce = 10;
     public Bot _bot;
-    public gameScript _gameScript;
+ 
     
 
     public void Awake()
     {
         rbBala = FindObjectOfType<Rigidbody>();
         _bot = FindObjectOfType<Bot>();
-        _gameScript = FindObjectOfType<gameScript>();
+        
     }
 
     public void Start()
@@ -27,7 +27,7 @@ public class fireScript : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             collision.gameObject.transform.tag = "Enemy";
-            _gameScript.timeInfectado += 5f;
+           
         }
 
         if (collision.gameObject.tag == "Ground")

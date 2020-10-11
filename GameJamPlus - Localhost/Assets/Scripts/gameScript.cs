@@ -43,11 +43,7 @@ public class gameScript : MonoBehaviour
         // 1 tempo apenas para os monstros, ele ganha qdo contaminar todos e ganha mais tempo a cada player/bot infectado
         // Se o tempo acabar os sobreviventes ganham e o infectado ganha qdo contaminar todos
         
-        if (timeInfectado <= 0)
-        {
-         // infectado perde e todos infectados morrem  
-         // Tela GameOver, sobreviventes Wins
-        }
+    
 
     }
  
