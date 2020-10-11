@@ -14,7 +14,7 @@ public class Bot : MonoBehaviour
     private float DistancePerception = 15;
    
     private bool chasing;
-    private float visionEnemy = 360f, distance=100f,actual, distanceP=100;
+    private float visionEnemy = 360f, distance=100f,actual, distanceP=100,DistanceE=100;
     private int actualPoint = 0;
     public float time;
  
@@ -22,6 +22,7 @@ public class Bot : MonoBehaviour
     public  NavMeshAgent navAgent;
     private bool B=true;
     GameObject player;
+    GameObject Enemy;
 
     private bool canShoot = true;
     public GameObject prefBala;
@@ -151,11 +152,24 @@ public class Bot : MonoBehaviour
         }
         if (Vector3.Distance(transform.position, target.position) < 1.5f)
         {
-            actualPoint = Random.Range(0, 4);
+            actualPoint = Random.Range(0, 21);
             target = points[actualPoint];
         }
 
-        GameObject Enemy = GameObject.FindGameObjectWithTag("Enemy");
+        //GameObject Enemy;
+
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Enemy");
+        // player.Add(GameObject.FindGameObjectWithTag("Player"));
+        int L;
+        L = players.Length;
+        for (int A = 0; A < L; A++)
+        {
+            if (Vector3.Distance(transform.position, players[A].transform.position) < DistanceE)
+                Enemy = players[A];
+
+            DistanceE = Vector3.Distance(transform.position, players[A].transform.position);
+
+        }
 
         Vector3 direction = Enemy.transform.position - navAgent.transform.position;
         float angle = Vector3.Angle(direction, transform.forward);
@@ -167,7 +181,7 @@ public class Bot : MonoBehaviour
             
             if (((hit.collider.gameObject.CompareTag("Enemy")) && (angle < visionEnemy)))
             {
-                for(int i=0;i<3;i++)
+                for(int i=0;i<21;i++)
                 {   
                     actual= Vector3.Distance(Enemy.transform.position, target.position);
 
