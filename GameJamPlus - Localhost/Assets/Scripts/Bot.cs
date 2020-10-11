@@ -11,7 +11,8 @@ public class Bot : MonoBehaviour
     public Transform[] points;
     private int nextpoint;
     private Transform target;
-    private float DistancePerception = 15;
+    private float DistancePerception = 30;
+    public GameObject Skin1, Skin2;
    
     private bool chasing;
     private float visionEnemy = 360f, distance=100f,actual, distanceP=100,DistanceE=100;
@@ -66,6 +67,8 @@ public class Bot : MonoBehaviour
 
     void cassando()
     {
+        Skin1.SetActive(false);
+        Skin2.SetActive(true);
         navAgent.speed = 2f;
 
         if (B == true)
@@ -78,19 +81,19 @@ public class Bot : MonoBehaviour
             }
             if (Vector3.Distance(transform.position, target.position) < 1.5f)
             {
-                actualPoint = Random.Range(0, 4);
+                actualPoint = Random.Range(0, 21);
             }
         }
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        GameObject[] playerss = GameObject.FindGameObjectsWithTag("Player");
         // player.Add(GameObject.FindGameObjectWithTag("Player"));
         int L;
-        L = players.Length;
+        L = playerss.Length;
         for (int A = 0; A < L; A++)
         {  
-                if (Vector3.Distance(transform.position, players[A].transform.position) < distanceP)
-                    player = players[A];
+                if (Vector3.Distance(transform.position, playerss[A].transform.position) < distanceP)
+                    player = playerss[A];
             
-            distanceP = Vector3.Distance(transform.position, players[A].transform.position);
+            distanceP = Vector3.Distance(transform.position, playerss[A].transform.position);
 
         }
 

@@ -89,7 +89,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4855102141434216494}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 5098f5e05937ed54abdee07e0954354d, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -124,4 +124,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rbBala: {fileID: 4855102141434216493}
-  explosionForce: 10
+  explosionForce: 20
+  _bot: {fileID: 0}

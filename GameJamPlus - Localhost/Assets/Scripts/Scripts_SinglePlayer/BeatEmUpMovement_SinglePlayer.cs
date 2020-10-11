@@ -39,7 +39,7 @@ public class BeatEmUpMovement_SinglePlayer : MonoBehaviour//NetworkBehaviour
     public bool canShoot = false;
     public GameObject prefBala;
     public Transform fireTransform;
-
+    public GameObject Skin1, Skin2;
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
@@ -50,6 +50,8 @@ public class BeatEmUpMovement_SinglePlayer : MonoBehaviour//NetworkBehaviour
     {
         if (gameObject.tag == "Enemy")
         {
+            Skin1.SetActive(false);
+            Skin2.SetActive(true);
             canShoot = true;
         }
 
