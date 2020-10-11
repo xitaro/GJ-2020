@@ -127,15 +127,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f61ccabb59ab91b4fbef568783da51a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   Skin1: {fileID: 8240150776741663495}
   Skin2: {fileID: 8977402351286506920}
   time: 6
   goList: []
+  Pointss: []
   navAgent: {fileID: 6340468467574735158}
   prefBala: {fileID: 7434861789426815142, guid: be729a406204a25489fb9ce990199966,
     type: 3}
@@ -167,7 +163,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 2
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1

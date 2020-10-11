@@ -161,13 +161,14 @@ public class Bot : MonoBehaviour
     void moving()
     {
 
-        int Co = Pointss.Count;
-        if (Vector3.Distance(transform.position, target.position) > 1.5f)
+        int Co;
+        Co= Pointss.Count;
+        if (Vector3.Distance(transform.position, target.position) > 4f)
         {
             ///actualPoint = Random.Range(1, 10);
             navAgent.destination = target.position;
         }
-        if (Vector3.Distance(transform.position, target.position) < 1.5f)
+        if (Vector3.Distance(transform.position, target.position) < 4f)
         {
             actualPoint = Random.Range(0, Co);
             target = Pointss[actualPoint].transform;
@@ -214,7 +215,7 @@ public class Bot : MonoBehaviour
                     }
                     
                         distance = Vector3.Distance(Enemy.transform.position, Pointss[i].transform.position);
-                        C = false;
+                        
 
                     }
 
