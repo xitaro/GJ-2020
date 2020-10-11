@@ -241,7 +241,7 @@ Camera:
   far clip plane: 5000
   field of view: 10
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 15
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -265,7 +265,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 66015020}
   m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 136.9, y: 8.4, z: -29}
+  m_LocalPosition: {x: 136.9, y: 1.6243687, z: -22.061504}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -514,7 +514,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1996124617}
   m_Lens:
     FieldOfView: 10
-    OrthographicSize: 10
+    OrthographicSize: 15
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
@@ -906,7 +906,7 @@ PrefabInstance:
         type: 3}
       propertyPath: goList.Array.data[6]
       value: 
-      objectReference: {fileID: 1996124616}
+      objectReference: {fileID: 1418916370}
     - target: {fileID: 6340468467574735152, guid: 65397de107ccfa74885d15806d7fab37,
         type: 3}
       propertyPath: prefBala
@@ -1226,7 +1226,7 @@ PrefabInstance:
         type: 3}
       propertyPath: goList.Array.data[6]
       value: 
-      objectReference: {fileID: 1996124616}
+      objectReference: {fileID: 1418916370}
     - target: {fileID: 6340468467574735152, guid: 65397de107ccfa74885d15806d7fab37,
         type: 3}
       propertyPath: Pointss.Array.data[0]
@@ -1525,7 +1525,7 @@ PrefabInstance:
         type: 3}
       propertyPath: goList.Array.data[6]
       value: 
-      objectReference: {fileID: 1996124616}
+      objectReference: {fileID: 1418916370}
     - target: {fileID: 6340468467574735152, guid: 65397de107ccfa74885d15806d7fab37,
         type: 3}
       propertyPath: Pointss.Array.data[0]
@@ -1836,6 +1836,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652366724473753722, guid: c2fc5830362104f47bbfedc04b5be7f2,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652366724473753722, guid: c2fc5830362104f47bbfedc04b5be7f2,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652366724473753722, guid: c2fc5830362104f47bbfedc04b5be7f2,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6778358783130597146, guid: c2fc5830362104f47bbfedc04b5be7f2,
         type: 3}
@@ -2229,7 +2244,7 @@ PrefabInstance:
         type: 3}
       propertyPath: goList.Array.data[6]
       value: 
-      objectReference: {fileID: 1996124616}
+      objectReference: {fileID: 1418916370}
     - target: {fileID: 6340468467574735152, guid: 65397de107ccfa74885d15806d7fab37,
         type: 3}
       propertyPath: Pointss.Array.data[3]
@@ -2528,7 +2543,7 @@ PrefabInstance:
         type: 3}
       propertyPath: goList.Array.data[6]
       value: 
-      objectReference: {fileID: 1996124616}
+      objectReference: {fileID: 1418916370}
     - target: {fileID: 6340468467574735152, guid: 65397de107ccfa74885d15806d7fab37,
         type: 3}
       propertyPath: Pointss.Array.data[0]
@@ -2893,7 +2908,7 @@ PrefabInstance:
         type: 3}
       propertyPath: goList.Array.data[6]
       value: 
-      objectReference: {fileID: 1996124616}
+      objectReference: {fileID: 1418916370}
     - target: {fileID: 6340468467574735152, guid: 65397de107ccfa74885d15806d7fab37,
         type: 3}
       propertyPath: Pointss.Array.data[1]
@@ -3392,7 +3407,7 @@ PrefabInstance:
         type: 3}
       propertyPath: goList.Array.data[6]
       value: 
-      objectReference: {fileID: 1996124616}
+      objectReference: {fileID: 1418916370}
     - target: {fileID: 6340468467574735152, guid: 65397de107ccfa74885d15806d7fab37,
         type: 3}
       propertyPath: Pointss.Array.data[0]
@@ -3541,6 +3556,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1333689193585838693, guid: 55e0a48e7de24e84699afeac3291bb1a,
     type: 3}
   m_PrefabInstance: {fileID: 1333689192815055744}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1418916370 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 63374811, guid: c2fc5830362104f47bbfedc04b5be7f2,
+    type: 3}
+  m_PrefabInstance: {fileID: 777736671}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1425984697 stripped
 GameObject:
