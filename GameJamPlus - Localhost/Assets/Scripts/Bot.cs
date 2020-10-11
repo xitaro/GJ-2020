@@ -56,7 +56,7 @@ public class Bot : MonoBehaviour
             time += Time.deltaTime;
             if (time > 3)
             {
-                B = true;
+                //B = true;
                 chasing = false;
                 time = 0;
             }
@@ -74,12 +74,12 @@ public class Bot : MonoBehaviour
         if (B == true)
         {
             target = points[actualPoint];
-            if (Vector3.Distance(transform.position, target.position) > 1.5f)
+            if (Vector3.Distance(transform.position, target.position) > 3f)
             {
                 ///actualPoint = Random.Range(1, 10);
                 navAgent.destination = target.position;
             }
-            if (Vector3.Distance(transform.position, target.position) < 1.5f)
+            if (Vector3.Distance(transform.position, target.position) < 3f)
             {
                 actualPoint = Random.Range(0, 21);
             }
@@ -126,11 +126,16 @@ public class Bot : MonoBehaviour
             //Persegue o último lugar que viu o player
            else if (chasing == true)
             {
-                navAgent.SetDestination(lastPlayerSee.transform.position);     
+                navAgent.SetDestination(lastPlayerSee.transform.position);
+                Invoke("Ronda", 3f);
             }
          
         }
 
+    }
+    void Ronda()
+    {
+        B = true;
     }
 
     void Fire()

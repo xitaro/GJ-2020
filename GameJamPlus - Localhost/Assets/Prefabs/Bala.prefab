@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4855102141434216491}
   - component: {fileID: 4855102141434216493}
   - component: {fileID: 4745846319479252203}
+  - component: {fileID: 4787682547422331714}
   m_Layer: 0
   m_Name: Bala
   m_TagString: Untagged
@@ -126,3 +127,19 @@ MonoBehaviour:
   rbBala: {fileID: 4855102141434216493}
   explosionForce: 20
   _bot: {fileID: 0}
+--- !u!208 &4787682547422331714
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4855102141434216494}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
