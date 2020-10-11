@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -718,6 +718,8 @@ MonoBehaviour:
   - {fileID: 704080953}
   - {fileID: 1996124616}
   startTimeToInfect: 5
+  startGameTime: 0
+  timeInfectado: 180
 --- !u!4 &224043801
 Transform:
   m_ObjectHideFlags: 0
@@ -2104,8 +2106,8 @@ RectTransform:
   m_Father: {fileID: 1268060879}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5067709, y: 0.48148146}
-  m_AnchorMax: {x: 0.5067709, y: 0.48148146}
+  m_AnchorMin: {x: 0.5, y: 0.48148146}
+  m_AnchorMax: {x: 0.5, y: 0.48148146}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 521, y: 513}
   m_Pivot: {x: 0.5, y: 0.5}
