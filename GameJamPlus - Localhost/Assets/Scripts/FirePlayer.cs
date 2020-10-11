@@ -6,12 +6,14 @@ public class FirePlayer : MonoBehaviour
 {
     public Rigidbody rbBala;
     public float explosionForce = 100;
+    public gameScript _gameScript;
 
     public BeatEmUpMovement_SinglePlayer _player;
 
     public void Awake()
     {
         rbBala = FindObjectOfType<Rigidbody>();
+        _gameScript = FindObjectOfType<gameScript>();
 
     }
 
@@ -31,6 +33,7 @@ public class FirePlayer : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             collision.gameObject.transform.tag = "Enemy";
+            _gameScript.timeInfectado += 5f;
         }
 
         if (collision.gameObject.tag == "Ground")
