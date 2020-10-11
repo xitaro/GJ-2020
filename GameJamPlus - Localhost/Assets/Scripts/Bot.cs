@@ -1,4 +1,4 @@
-﻿using Packages.Rider.Editor.UnitTesting;
+﻿//using Packages.Rider.Editor.UnitTesting;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
@@ -20,6 +20,12 @@ public class Bot : MonoBehaviour
 
     [Header("Infected")]
     [SerializeField] private bool isInfected;
+    private bool canShoot = true;
+    public GameObject prefBala;
+    public Transform fireTransform;
+
+    [Header("References")]
+    [SerializeField] private Animator anim;
 
     private bool chasing,test=true;
     private float visionEnemy = 360f, distance=100f, distanceP=40;
@@ -33,9 +39,7 @@ public class Bot : MonoBehaviour
     GameObject player;
     GameObject Enemy;
 
-    private bool canShoot = true;
-    public GameObject prefBala;
-    public Transform fireTransform;
+   
    
     
 
@@ -51,6 +55,11 @@ public class Bot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (navAgent.speed > 0.01f)
+        {
+            anim.SetFloat("Speed", navAgent.speed);
+        }
+
         // Se a tag for inimigo
         if (gameObject.tag == "Enemy") 
         {
@@ -82,10 +91,10 @@ public class Bot : MonoBehaviour
     }
 
     void cassando()
-    {
-        
-        navAgent.speed = 5f;
-
+    {  
+        navAgent.speed = 7f;
+        int Co;
+        Co = Pointss.Count;
         if (B == true)
         {
             target = Pointss[actualPoint].transform;
@@ -96,7 +105,7 @@ public class Bot : MonoBehaviour
             }
             if (Vector3.Distance(transform.position, target.position) < 3f)
             {
-                actualPoint = Random.Range(0, 21);
+                actualPoint = Random.Range(0, Co);
             }
         }
         //GameObject[] playerss = GameObject.FindGameObjectsWithTag("Player");
@@ -164,7 +173,7 @@ public class Bot : MonoBehaviour
         //Atira
         Instantiate(prefBala,fireTransform.position, fireTransform.rotation);
         Invoke("FireAgain", 10f);
-
+        anim.SetTrigger("Shoot");
     }
 
     void FireAgain()
@@ -246,6 +255,8 @@ public class Bot : MonoBehaviour
         doctorModel.SetActive(false);
         // Ativa o model de infectado
         infectedModel.SetActive(true);
+        //Troca o animator
+        anim = infectedModel.GetComponent<Animator>();
     }
 
     // Ao colidir em algo

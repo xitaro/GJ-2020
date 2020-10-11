@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
-    
+
+    [Header("References")]
+    [SerializeField] private BeatEmUpMovement_SinglePlayer movementScript;
 
     [Header("Fire")]
     bool shootRequest;
@@ -57,6 +59,8 @@ public class PlayerScript : MonoBehaviour
         if (isInfected && shoot)
         {
             Instantiate(bulletPrefab, transformForward.position, transformForward.rotation);
+            // Animação de atirar
+            infectedSkin.GetComponent<Animator>().SetTrigger("Shoot");
             //Invoke("FireAgain", 10f);
             yield return new WaitForSeconds(5f);
         }
@@ -79,21 +83,7 @@ public class PlayerScript : MonoBehaviour
     }*/
 
     //Se colidir com algo
-    private void OnCollisionEnter(Collision collision)
-    {
-        // Verifica se a tag é Goop
-        if (collision.gameObject.tag == "Goop")
-        {
-            // Diz que está infectado
-            isInfected = true;
-            // Seta a tag para Enemy
-            navMeshObject.tag = "Enemy";
-            // Transforma em infectado
-            Transformation();
-            //Inicializa o timer de infectado
-            infectedTime = startInfectedTime;
-        }
-    }
+  
 
     private void CountDown()
     {
@@ -111,5 +101,24 @@ public class PlayerScript : MonoBehaviour
         doctorSkin.SetActive(false);
         // Ativa o model de infectado
         infectedSkin.SetActive(true);
+        //Troca animator
+        movementScript.anim = infectedSkin.GetComponent<Animator>();
+        
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        // Verifica se a tag é Goop
+        if (collision.gameObject.tag == "Goop")
+        {
+            // Diz que está infectado
+            isInfected = true;
+            // Seta a tag para Enemy
+            navMeshObject.tag = "Enemy";
+            // Transforma em infectado
+            Transformation();
+            //Inicializa o timer de infectado
+            infectedTime = startInfectedTime;
+        }
     }
 }
