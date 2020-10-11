@@ -6,7 +6,22 @@ ModelImporter:
   - first:
       74: -623603649343465320
     second: Scene
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Jaleco
+    second: {fileID: 2100000, guid: 151d81e4e0e16b14491688108794c5ca, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Olhos
+    second: {fileID: 2100000, guid: a1da89e387bfd1a4b8bda5a6b17f31a3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Salsicha
+    second: {fileID: 2100000, guid: 7fd89800911b40247af703830094aa82, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

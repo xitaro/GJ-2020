@@ -7,6 +7,7 @@ TagManager:
   - Point
   - Enemy
   - Ground
+  - Goop
   layers:
   - Default
   - TransparentFX

@@ -24,7 +24,22 @@ ModelImporter:
   - first:
       74: 1023992570608409904
     second: Walk
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Jaleco
+    second: {fileID: 2100000, guid: 1edd6073ee22102409dc00f8e979788b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Olhos
+    second: {fileID: 2100000, guid: 50e99f553d9574e449c6f5cfd596862a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Salsicha
+    second: {fileID: 2100000, guid: b4775968381c9a742b1eb6e37ec2e5c6, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

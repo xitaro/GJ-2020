@@ -30,7 +30,32 @@ ModelImporter:
   - first:
       74: -3100369314251171874
     second: Idle
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Globo
+    second: {fileID: 2100000, guid: 17113a42e5637bf4aa5922c6c0b63309, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glow
+    second: {fileID: 2100000, guid: e35547bf33527d54ca40d5173e247ab7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Jaleco
+    second: {fileID: 2100000, guid: cdfc1a5a217e8dd4e9ab598ece5e3290, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Olhos
+    second: {fileID: 2100000, guid: df630e9db2be1594bbb9d655e62fd8a6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Salsicha
+    second: {fileID: 2100000, guid: ec0158733d2d8eb49af2f37541465cea, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

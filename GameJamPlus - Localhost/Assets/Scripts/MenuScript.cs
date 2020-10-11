@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿        using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -19,12 +19,6 @@ public class MenuScript : MonoBehaviour
         BtnReturn.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Play()
     {    
         SceneManager.LoadScene(1);
@@ -32,14 +26,12 @@ public class MenuScript : MonoBehaviour
 
     public void Settings()
     {
-            
         menuAnimator.SetBool("IsSettings", true);
         BtnOpcoes.SetActive(false);
         Title.SetActive(false);
         BtnPlay.SetActive(false);
         BtnAbout.SetActive(false);
         BtnReturn.SetActive(true);
-
     }
 
     public void Return()
@@ -63,8 +55,6 @@ public class MenuScript : MonoBehaviour
             BtnAbout.SetActive(true);
             BtnOpcoes.SetActive(true);
         }
-        
-
     }
 
     public void About()
@@ -75,10 +65,7 @@ public class MenuScript : MonoBehaviour
         BtnPlay.SetActive(false);
         BtnAbout.SetActive(false);
         BtnReturn.SetActive(true);
-       
-    }
-
-  
+    }       
 }
   
 

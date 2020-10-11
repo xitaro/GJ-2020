@@ -12,8 +12,15 @@ public class Bot : MonoBehaviour
     private int nextpoint;
     private Transform target;
     private float DistancePerception = 50;
-    public GameObject Skin1, Skin2;
-   
+
+
+    [Header("Models")]
+    [SerializeField] private GameObject doctorModel;
+    [SerializeField] private GameObject infectedModel;
+
+    [Header("Infected")]
+    [SerializeField] private bool isInfected;
+
     private bool chasing,test=true;
     private float visionEnemy = 360f, distance=100f, distanceP=40;
     private int actualPoint = 0;
@@ -44,14 +51,22 @@ public class Bot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-
-        if (gameObject.tag == "Enemy")
+        // Se a tag for inimigo
+        if (gameObject.tag == "Enemy") 
         {
+            // Está infectado
+            isInfected = true;
+        }
+        
+        // Se está infectado
+        if (isInfected)
+        {
+            // Começa a caçar
             cassando();
         }
-        else moving();
+        else moving(); // Se não, se move
 
+        // Se está perseguindo
         if (chasing)
         {
             time += Time.deltaTime;
@@ -62,14 +77,12 @@ public class Bot : MonoBehaviour
                 time = 0;
             }
         }
-
-
     }
 
     void cassando()
     {
-        Skin1.SetActive(false);
-        Skin2.SetActive(true);
+        // Se transforma
+        Transformation();
         navAgent.speed = 5f;
 
         if (B == true)
@@ -225,6 +238,26 @@ public class Bot : MonoBehaviour
             }
         }
     }
-  
-  
+
+    public void Transformation()
+    {
+        // Desativa o model de doutor
+        doctorModel.SetActive(false);
+        // Ativa o model de infectado
+        infectedModel.SetActive(true);
+    }
+
+    // Ao colidir em algo
+    private void OnCollisionEnter(Collision collision)
+    {
+        // Verifica se a tag é Goop
+        if(collision.gameObject.tag == "Goop")
+        {
+            // Diz que está infectado
+            isInfected = true;
+            // Seta a tag para Enemy
+            this.gameObject.tag = "Enemy";
+        }
+    }
+
 }

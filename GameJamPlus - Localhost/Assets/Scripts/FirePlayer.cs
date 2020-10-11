@@ -6,14 +6,12 @@ public class FirePlayer : MonoBehaviour
 {
     public Rigidbody rbBala;
     public float explosionForce = 100;
-    public gameScript _gameScript;
-
-    public BeatEmUpMovement_SinglePlayer _player;
+   // public gameScript _gameScript;
 
     public void Awake()
     {
         rbBala = FindObjectOfType<Rigidbody>();
-        _gameScript = FindObjectOfType<gameScript>();
+        //_gameScript = FindObjectOfType<gameScript>();
 
     }
 
@@ -28,13 +26,13 @@ public class FirePlayer : MonoBehaviour
        // rbBala.transform.Translate(0, 0, 10 * Time.deltaTime);
     }
 
-    private void OnCollisionEnter(Collision collision)
+   private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Player")
+       /* if (collision.gameObject.tag == "Player")
         {
             collision.gameObject.transform.tag = "Enemy";
             _gameScript.timeInfectado += 5f;
-        }
+        }*/
 
         if (collision.gameObject.tag == "Ground")
         {

@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -855735985674170171}
   m_Layer: 0
   m_Name: BalaPlayer
-  m_TagString: Untagged
+  m_TagString: Goop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,7 +126,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rbBala: {fileID: 7434861789426815141}
   explosionForce: 30
-  _gameScript: {fileID: 0}
   _player: {fileID: 0}
 --- !u!208 &-855735985674170171
 NavMeshObstacle:
