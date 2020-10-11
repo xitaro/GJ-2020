@@ -56,6 +56,8 @@ public class Bot : MonoBehaviour
         {
             // Está infectado
             isInfected = true;
+            // Se transforma
+            Transformation();
         }
         
         // Se está infectado
@@ -81,8 +83,7 @@ public class Bot : MonoBehaviour
 
     void cassando()
     {
-        // Se transforma
-        Transformation();
+        
         navAgent.speed = 5f;
 
         if (B == true)
