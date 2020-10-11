@@ -93,7 +93,8 @@ public class Bot : MonoBehaviour
     void cassando()
     {  
         navAgent.speed = 7f;
-
+        int Co;
+        Co = Pointss.Count;
         if (B == true)
         {
             target = Pointss[actualPoint].transform;
@@ -104,7 +105,7 @@ public class Bot : MonoBehaviour
             }
             if (Vector3.Distance(transform.position, target.position) < 3f)
             {
-                actualPoint = Random.Range(0, 20);
+                actualPoint = Random.Range(0, Co);
             }
         }
         //GameObject[] playerss = GameObject.FindGameObjectsWithTag("Player");
