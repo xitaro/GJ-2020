@@ -23,10 +23,12 @@ public class GameController : MonoBehaviour
     public float timeInfectado = 180f;
     public float min, sec;
     public Text txtTimer;
+    public int infectedCount;
 
 
     [Header("PlayerWin Condiction")]
     public GameObject panelWin;
+    public GameObject panelLose;
 
     [Header("GamePause")]
     public GameObject panelPause;
@@ -51,7 +53,6 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
-        timeInfectado -= Time.deltaTime;
 
         InfectSomeone();
 
@@ -133,26 +134,42 @@ public class GameController : MonoBehaviour
 
     public void CountDown()
     {
-        gameTime -= Time.deltaTime;
-        //VerifyWin();
+        timeInfectado -= Time.deltaTime;
+        VerifyWin();
     }
 
-    //public void VerifyWin()
-    //{
-    //    if (gameTime <= 0)
-    //    {
-    //        foreach (GameObject player in players)
-    //        {
-    //            if(player.tag == "Player")
-    //            {
-    //                //Player ganhou!!
-    //                return;
-    //            }
-    //            else
-    //            {
-    //                Debug.Log("Não é player");
-    //            }
-    //        }
-    //    }
-    //}
+    public void VerifyWin()
+    {
+        if (timeInfectado <= 0)
+        {
+            foreach (GameObject player in players)
+            {
+                if (player.tag == "Player")
+                {
+                    // Tem um player vivo, 
+                    //Player ganhou!!
+                    return;
+                }
+                else if (player.tag == "Enemy")
+                {
+                    infectedCount++;
+                }
+            }
+
+            if (infectedCount >= players.Count)
+            {
+                void YouLOSE()
+                {
+                    //VOCE PERDEU! JOGO SIMPLIFICADO
+
+                    //Parar o tempo sem perder as funçoes dos botoes
+                    Time.timeScale = 0.000000000000000001f;
+                    //Chama painel de derrota
+                   panelLose.SetActive(true);
+
+
+                }
+            }
+        }
+    }
 }
