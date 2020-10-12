@@ -16,13 +16,16 @@ public class MenuScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        FindObjectOfType<AudioManager>().Play("Menu");
         menuAnimator = gameObject.GetComponent<Animator>();
         BtnReturn.SetActive(false);
         SettingPanel.SetActive(false);
     }
 
     public void Play()
-    {    
+    {
+        FindObjectOfType<AudioManager>().Stop("Menu");
+        FindObjectOfType<AudioManager>().Play("Gameplay");
         SceneManager.LoadScene(1);
     }
 
