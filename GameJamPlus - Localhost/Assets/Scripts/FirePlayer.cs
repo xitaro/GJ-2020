@@ -37,6 +37,7 @@ public class FirePlayer : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             rbBala.isKinematic = true;
+            FindObjectOfType<AudioManager>().Play("sfx_spit_impact3");
         }
     }
 }
