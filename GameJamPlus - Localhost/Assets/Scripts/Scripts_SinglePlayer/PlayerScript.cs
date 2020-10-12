@@ -8,7 +8,8 @@ public class PlayerScript : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private BeatEmUpMovement_SinglePlayer movementScript;
-
+    [SerializeField] private Button fireBtn;
+   
     [Header("Fire")]
     bool shootRequest;
     public GameObject bulletPrefab;
@@ -106,6 +107,7 @@ public class PlayerScript : MonoBehaviour
         //Troca animator
         movementScript.anim = infectedSkin.GetComponent<Animator>();
         FindObjectOfType<AudioManager>().Play("sfx_infected");
+        fireBtn.gameObject.SetActive(true);
         //JOGO SIMPLIFICADO VC MORREU
         //Invoke("YouLOSE", 5f);
         
