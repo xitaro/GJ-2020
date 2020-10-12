@@ -930,7 +930,7 @@ MonoBehaviour:
     loop: 1
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
-  - name: End Music
+  - name: EndgameMusic
     clip: {fileID: 8300000, guid: 8068ae3dfeb27f84d97a29a26f0e1e6d, type: 3}
     volume: 0.5
     volumeVariance: 0
@@ -939,7 +939,7 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
-  - name: SFX_TurnToInfected
+  - name: sfx_infected
     clip: {fileID: 8300000, guid: 19f78d95f9339814ebed0dd8cbe9af3a, type: 3}
     volume: 0.8
     volumeVariance: 0
@@ -948,7 +948,7 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
-  - name: SFX_BolaHitGround
+  - name: sfx_spit
     clip: {fileID: 8300000, guid: bfe4ba74d1422af40af20df36c9943ef, type: 3}
     volume: 0.8
     volumeVariance: 0
@@ -957,7 +957,7 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
-  - name: SFX_Cuspe
+  - name: sfx_spit_wvoice
     clip: {fileID: 8300000, guid: 4b3a941b60d48af4c9419edcca6c9443, type: 3}
     volume: 0.8
     volumeVariance: 0
@@ -966,7 +966,7 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
-  - name: SFX_BolaHitPessoa
+  - name: sfx_spit_impact3
     clip: {fileID: 8300000, guid: 084631d10692dc640bd2cec9a9c54176, type: 3}
     volume: 0.8
     volumeVariance: 0

@@ -107,7 +107,7 @@ public class PlayerScript : MonoBehaviour
         movementScript.anim = infectedSkin.GetComponent<Animator>();
         FindObjectOfType<AudioManager>().Play("sfx_infected");
         //JOGO SIMPLIFICADO VC MORREU
-        Invoke("YouLOSE", 5f);
+        //Invoke("YouLOSE", 5f);
         
     }
 

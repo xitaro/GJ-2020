@@ -21,10 +21,11 @@ public class GameController : MonoBehaviour
 
     [Header("Time Infectado")]
     public float timeInfectado = 180f;
-
+    public int infectedCount;
 
     [Header("PlayerWin Condiction")]
     public GameObject panelWin;
+    public GameObject painelLose;
 
     [Header("GamePause")]
     public GameObject panelPause;
@@ -129,25 +130,41 @@ public class GameController : MonoBehaviour
     public void CountDown()
     {
         gameTime -= Time.deltaTime;
-        //VerifyWin();
+        VerifyWin();
     }
 
-    //public void VerifyWin()
-    //{
-    //    if (gameTime <= 0)
-    //    {
-    //        foreach (GameObject player in players)
-    //        {
-    //            if(player.tag == "Player")
-    //            {
-    //                //Player ganhou!!
-    //                return;
-    //            }
-    //            else
-    //            {
-    //                Debug.Log("Não é player");
-    //            }
-    //        }
-    //    }
-    //}
+    public void VerifyWin()
+    {
+        if (gameTime <= 0)
+        {
+            foreach (GameObject player in players)
+            {
+                if (player.tag == "Player")
+                {
+                    pplayerWin();
+                    return;
+                }
+                else if (player.tag == "Enemy")
+                {
+                    infectedCount++;
+                }
+            }
+
+            if (infectedCount >= players.Count)
+            {
+                YouLOSE();
+            }
+        }
+    }
+
+    void YouLOSE()
+    {
+        //VOCE PERDEU! JOGO SIMPLIFICADO
+
+        //Parar o tempo sem perder as funçoes dos botoes
+        Time.timeScale = 0.000000000000000001f;
+        //Chama painel de derrota
+        painelLose.SetActive(true);
+        
+    }
 }
