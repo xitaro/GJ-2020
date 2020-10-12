@@ -20,7 +20,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private GameObject navMeshObject;
 
     [Header("Infected")]
-    [SerializeField] private bool isInfected;
+    [SerializeField] public bool isInfected;
     [SerializeField] private float startInfectedTime = 10f;
     private float infectedTime;
 
@@ -38,19 +38,9 @@ public class PlayerScript : MonoBehaviour
     private void Update()
     {
         // Se a tag for inimigo
-        if (navMeshObject.tag == "Enemy")
-        {
-            // Está infectado
-            isInfected = true;
-        }
-
+  
         // Se está infectado
-        if (isInfected == true)
-        {
-            // Contagem regressiva para morrer
-            CountDown();
-            Transformation();
-        }       
+         
     }
 
     private void FixedUpdate()

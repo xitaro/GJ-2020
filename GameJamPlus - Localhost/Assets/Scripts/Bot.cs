@@ -60,13 +60,13 @@ public class Bot : MonoBehaviour
         }
 
         // Se a tag for inimigo
-        if (gameObject.tag == "Enemy") 
-        {
+    
             // Está infectado
-            isInfected = true;
+          
+
+
             // Se transforma
-            Transformation();
-        }
+     
         
         // Se está infectado
         if (isInfected)
@@ -255,6 +255,7 @@ public class Bot : MonoBehaviour
         // Ativa o model de infectado
         infectedModel.SetActive(true);
         FindObjectOfType<AudioManager>().Play("sfx_infected");
+        isInfected = true;
         //Troca o animator
         anim = infectedModel.GetComponent<Animator>();
     }

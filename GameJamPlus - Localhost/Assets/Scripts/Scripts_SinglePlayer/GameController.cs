@@ -99,6 +99,7 @@ public class GameController : MonoBehaviour
 
     void pplayerWin()
     {
+        FindObjectOfType<AudioManager>().Play("EndgameMusic");
         //chama painel de vitoria
         panelWin.SetActive(true);
         // congela o jogo 
@@ -116,6 +117,9 @@ public class GameController : MonoBehaviour
             
             int rand = Random.Range(0, players.Count-1);
             players[rand].gameObject.tag = "Enemy";
+            Bot bot = players[rand].gameObject.GetComponent<Bot>();
+            bot.Transformation();
+        
             stopInfect = true;
             hasStarted = true;
         }
@@ -125,25 +129,25 @@ public class GameController : MonoBehaviour
     public void CountDown()
     {
         gameTime -= Time.deltaTime;
-        VerifyWin();
+        //VerifyWin();
     }
 
-    public void VerifyWin()
-    {
-        if (gameTime <= 0)
-        {
-            foreach (GameObject player in players)
-            {
-                if(player.tag == "Player")
-                {
-                    //Player ganhou!!
-                    return;
-                }
-                else
-                {
-                    Debug.Log("Não é player");
-                }
-            }
-        }
-    }
+    //public void VerifyWin()
+    //{
+    //    if (gameTime <= 0)
+    //    {
+    //        foreach (GameObject player in players)
+    //        {
+    //            if(player.tag == "Player")
+    //            {
+    //                //Player ganhou!!
+    //                return;
+    //            }
+    //            else
+    //            {
+    //                Debug.Log("Não é player");
+    //            }
+    //        }
+    //    }
+    //}
 }
