@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
     [SerializeField] private List<GameObject> players;
+    [SerializeField] public List<GameObject> infecteds;
 
     [Header("Time Variables")]
     [SerializeField] private float startTimeToInfect;
@@ -53,6 +54,10 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
+        if(infecteds.Count == players.Count)
+        {
+            YouLOSE();
+        }
 
         InfectSomeone();
 
@@ -158,18 +163,20 @@ public class GameController : MonoBehaviour
 
             if (infectedCount >= players.Count)
             {
-                void YouLOSE()
-                {
-                    //VOCE PERDEU! JOGO SIMPLIFICADO
-
-                    //Parar o tempo sem perder as funçoes dos botoes
-                    Time.timeScale = 0.000000000000000001f;
-                    //Chama painel de derrota
-                   panelLose.SetActive(true);
-
-
-                }
+                YouLOSE();
             }
         }
+    }
+
+    void YouLOSE()
+    {
+        //VOCE PERDEU! JOGO SIMPLIFICADO
+
+        //Parar o tempo sem perder as funçoes dos botoes
+        Time.timeScale = 0.000000000000000001f;
+        //Chama painel de derrota
+        panelLose.SetActive(true);
+
+
     }
 }

@@ -25,6 +25,7 @@ public class Bot : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private Animator anim;
+    [SerializeField] private GameController gameController;
 
     private bool chasing,test=true;
     private float visionEnemy = 360f, distance=100f, distanceP=40;
@@ -39,10 +40,11 @@ public class Bot : MonoBehaviour
     GameObject Enemy;
 
    
-   
-    
+   void Awake()
+    {
+        gameController = FindObjectOfType<GameController>();
+    }
 
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -250,6 +252,8 @@ public class Bot : MonoBehaviour
 
     public void Transformation()
     {
+        //
+        gameController.infecteds.Add(this.gameObject);
         // Desativa o model de doutor
         doctorModel.SetActive(false);
         // Ativa o model de infectado
