@@ -28,11 +28,23 @@ public class FirePlayer : MonoBehaviour
 
    private void OnCollisionEnter(Collision collision)
     {
-       /* if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.transform.tag = "Enemy";
-            _gameScript.timeInfectado += 5f;
-        }*/
+            if ((collision.gameObject.name == "Player_SinglePlayer"))
+            {
+                collision.gameObject.transform.tag = "Enemy";
+                PlayerScript player = collision.gameObject.GetComponent<PlayerScript>();
+                player.Transformation();
+                player.isInfected = true;
+            }
+            else
+            {
+                collision.gameObject.transform.tag = "Enemy";
+                collision.gameObject.GetComponent<Bot>().Transformation();
+
+            }
+           
+        }
 
         if (collision.gameObject.tag == "Ground")
         {
