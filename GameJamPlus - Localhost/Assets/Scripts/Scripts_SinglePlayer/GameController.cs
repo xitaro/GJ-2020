@@ -26,6 +26,10 @@ public class GameController : MonoBehaviour
     [Header("PlayerWin Condiction")]
     public GameObject panelWin;
 
+    [Header("GamePause")]
+    public GameObject panelPause;
+    public bool isPause = false;
+
 
     private void Start()
     {
@@ -33,6 +37,10 @@ public class GameController : MonoBehaviour
         panelWin.SetActive(false);
         //Tempo escala normal
         Time.timeScale = 1;
+
+        //panelPause desligado
+        panelPause.SetActive(false);
+
         //players = new List<GameObject>();
         // Inicializa o tempo para infectar o primeiro player
         timeToInfect = startTimeToInfect;
@@ -59,6 +67,29 @@ public class GameController : MonoBehaviour
             Invoke("playerWIN", 2f);
         }
 
+        //void Pause
+        gamePause();
+    }
+
+    void gamePause()
+    {
+        if (isPause)
+        {
+            panelPause.SetActive(true);
+            Time.timeScale = 0.00000000000000000000001f;
+            
+        }
+        else
+        {
+            Time.timeScale = 1f;
+            panelPause.SetActive(false);
+        }
+    }
+
+    public void btnPause()
+    {
+        //btn pause e dispausa
+        isPause = !isPause;
     }
 
     void pplayerWin()
