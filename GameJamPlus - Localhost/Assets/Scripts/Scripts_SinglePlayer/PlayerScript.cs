@@ -72,6 +72,7 @@ public class PlayerScript : MonoBehaviour
             Instantiate(bulletPrefab, transformForward.position, transformForward.rotation);
             // Animação de atirar
             infectedSkin.GetComponent<Animator>().SetTrigger("Shoot");
+            FindObjectOfType<AudioManager>().Play("SFX_Cuspe");
             //Invoke("FireAgain", 10f);
             yield return new WaitForSeconds(5f);
         }
