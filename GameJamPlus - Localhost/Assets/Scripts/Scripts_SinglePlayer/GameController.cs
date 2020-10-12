@@ -21,11 +21,12 @@ public class GameController : MonoBehaviour
 
     [Header("Time Infectado")]
     public float timeInfectado = 180f;
-    public int infectedCount;
+    public float min, sec;
+    public Text txtTimer;
+
 
     [Header("PlayerWin Condiction")]
     public GameObject panelWin;
-    public GameObject painelLose;
 
     [Header("GamePause")]
     public GameObject panelPause;
@@ -67,6 +68,10 @@ public class GameController : MonoBehaviour
             // Tela GameOver, sobreviventes Wins
             Invoke("playerWIN", 2f);
         }
+        //timer to txt  
+         min = Mathf.FloorToInt(timeInfectado / 60);
+         sec = Mathf.FloorToInt(timeInfectado % 60);
+         txtTimer.text = string.Format("{0:00}:{1:00}", min, sec);
 
         //void Pause
         gamePause();
@@ -115,7 +120,6 @@ public class GameController : MonoBehaviour
 
         if(timeToInfect <= 0 && !stopInfect)
         {
-            
             int rand = Random.Range(0, players.Count-1);
             players[rand].gameObject.tag = "Enemy";
             Bot bot = players[rand].gameObject.GetComponent<Bot>();
@@ -130,41 +134,25 @@ public class GameController : MonoBehaviour
     public void CountDown()
     {
         gameTime -= Time.deltaTime;
-        VerifyWin();
+        //VerifyWin();
     }
 
-    public void VerifyWin()
-    {
-        if (gameTime <= 0)
-        {
-            foreach (GameObject player in players)
-            {
-                if (player.tag == "Player")
-                {
-                    pplayerWin();
-                    return;
-                }
-                else if (player.tag == "Enemy")
-                {
-                    infectedCount++;
-                }
-            }
-
-            if (infectedCount >= players.Count)
-            {
-                YouLOSE();
-            }
-        }
-    }
-
-    void YouLOSE()
-    {
-        //VOCE PERDEU! JOGO SIMPLIFICADO
-
-        //Parar o tempo sem perder as funçoes dos botoes
-        Time.timeScale = 0.000000000000000001f;
-        //Chama painel de derrota
-        painelLose.SetActive(true);
-        
-    }
+    //public void VerifyWin()
+    //{
+    //    if (gameTime <= 0)
+    //    {
+    //        foreach (GameObject player in players)
+    //        {
+    //            if(player.tag == "Player")
+    //            {
+    //                //Player ganhou!!
+    //                return;
+    //            }
+    //            else
+    //            {
+    //                Debug.Log("Não é player");
+    //            }
+    //        }
+    //    }
+    //}
 }
