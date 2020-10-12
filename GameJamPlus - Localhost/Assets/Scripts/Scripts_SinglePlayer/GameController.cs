@@ -86,6 +86,11 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public void btnMenu()
+    {
+        SceneManager.LoadScene("Scene_MenuSinglePlayer");
+    }
+
     public void btnPause()
     {
         //btn pause e dispausa
