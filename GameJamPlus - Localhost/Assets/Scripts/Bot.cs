@@ -171,7 +171,7 @@ public class Bot : MonoBehaviour
         //Atira
         FindObjectOfType<AudioManager>().Play("sfx_spit_wvoice");
         Instantiate(prefBala,fireTransform.position, fireTransform.rotation);
-        Invoke("FireAgain", 10f);
+        Invoke("FireAgain", 4f);
         anim.SetTrigger("Shoot");
     }
 
