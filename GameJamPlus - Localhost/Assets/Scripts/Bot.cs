@@ -169,6 +169,7 @@ public class Bot : MonoBehaviour
     void Fire()
     {
         //Atira
+        FindObjectOfType<AudioManager>().Play("sfx_spit_wvoice");
         Instantiate(prefBala,fireTransform.position, fireTransform.rotation);
         Invoke("FireAgain", 10f);
         anim.SetTrigger("Shoot");
@@ -253,6 +254,7 @@ public class Bot : MonoBehaviour
         doctorModel.SetActive(false);
         // Ativa o model de infectado
         infectedModel.SetActive(true);
+        FindObjectOfType<AudioManager>().Play("sfx_infected");
         //Troca o animator
         anim = infectedModel.GetComponent<Animator>();
     }

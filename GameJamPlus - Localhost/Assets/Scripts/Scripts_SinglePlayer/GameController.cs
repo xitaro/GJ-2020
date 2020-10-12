@@ -108,6 +108,7 @@ public class GameController : MonoBehaviour
 
         if(timeToInfect <= 0 && !stopInfect)
         {
+            
             int rand = Random.Range(0, players.Count-1);
             players[rand].gameObject.tag = "Enemy";
             stopInfect = true;

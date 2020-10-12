@@ -72,7 +72,7 @@ public class PlayerScript : MonoBehaviour
             Instantiate(bulletPrefab, transformForward.position, transformForward.rotation);
             // Animação de atirar
             infectedSkin.GetComponent<Animator>().SetTrigger("Shoot");
-            FindObjectOfType<AudioManager>().Play("SFX_Cuspe");
+            FindObjectOfType<AudioManager>().Play("sfx_spit");
             //Invoke("FireAgain", 10f);
             yield return new WaitForSeconds(5f);
         }
@@ -115,6 +115,7 @@ public class PlayerScript : MonoBehaviour
         infectedSkin.SetActive(true);
         //Troca animator
         movementScript.anim = infectedSkin.GetComponent<Animator>();
+        FindObjectOfType<AudioManager>().Play("sfx_infected");
         //JOGO SIMPLIFICADO VC MORREU
         Invoke("YouLOSE", 5f);
         
