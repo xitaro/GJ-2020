@@ -21,6 +21,8 @@ public class GameController : MonoBehaviour
 
     [Header("Time Infectado")]
     public float timeInfectado = 180f;
+    public float min, sec;
+    public Text txtTimer;
 
 
     [Header("PlayerWin Condiction")]
@@ -66,6 +68,10 @@ public class GameController : MonoBehaviour
             // Tela GameOver, sobreviventes Wins
             Invoke("playerWIN", 2f);
         }
+        //timer to txt  
+         min = Mathf.FloorToInt(timeInfectado / 60);
+         sec = Mathf.FloorToInt(timeInfectado % 60);
+         txtTimer.text = string.Format("{0:00}:{1:00}", min, sec);
 
         //void Pause
         gamePause();
@@ -113,7 +119,6 @@ public class GameController : MonoBehaviour
 
         if(timeToInfect <= 0 && !stopInfect)
         {
-            
             int rand = Random.Range(0, players.Count-1);
             players[rand].gameObject.tag = "Enemy";
             stopInfect = true;

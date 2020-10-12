@@ -1013,6 +1013,9 @@ MonoBehaviour:
   startTimeToInfect: 5
   startGameTime: 10
   timeInfectado: 120
+  min: 0
+  sec: 0
+  txtTimer: {fileID: 654217922}
   panelWin: {fileID: 1382808838}
   panelPause: {fileID: 497349845}
   isPause: 0
