@@ -9,6 +9,7 @@ public class PlayerScript : MonoBehaviour
     [Header("References")]
     [SerializeField] private BeatEmUpMovement_SinglePlayer movementScript;
     [SerializeField] private Button fireBtn;
+    [SerializeField] private GameController gameController;
    
     [Header("Fire")]
     bool shootRequest;
@@ -27,6 +28,11 @@ public class PlayerScript : MonoBehaviour
 
     [Header("Lose Condiction")]
     public GameObject painelLose;
+
+    void Awake()
+    {
+        gameController = FindObjectOfType<GameController>();
+    }
 
     public void Start()
     {
@@ -108,6 +114,7 @@ public class PlayerScript : MonoBehaviour
         movementScript.anim = infectedSkin.GetComponent<Animator>();
         FindObjectOfType<AudioManager>().Play("sfx_infected");
         fireBtn.gameObject.SetActive(true);
+        gameController.infecteds.Add(this.gameObject);
         //JOGO SIMPLIFICADO VC MORREU
         //Invoke("YouLOSE", 5f);
         

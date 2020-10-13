@@ -25,29 +25,30 @@ public class Bot : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private Animator anim;
+    [SerializeField] private GameController gameController;
 
     private bool chasing,test=true;
     private float visionEnemy = 360f, distance=100f, distanceP=40;
     private int actualPoint = 0;
     public float time;
-    public List<GameObject> goList,Pointss,infected;
+    public List<GameObject> goList,Pointss;
 
     private Transform lastPlayerSee;
     public  NavMeshAgent navAgent;
     private bool B=true;
     GameObject player;
     GameObject Enemy;
-    int L;
 
-
-
-
-
+   
+   void Awake()
+    {
+        gameController = FindObjectOfType<GameController>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        L = goList.Count;
+       
         actualPoint = Random.Range(0, 4);
         target = Pointss[actualPoint].transform;
     }
@@ -55,7 +56,6 @@ public class Bot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        L = goList.Count;
         if (navAgent.speed > 0.01f)
         {
             anim.SetFloat("Speed", navAgent.speed);
@@ -94,10 +94,10 @@ public class Bot : MonoBehaviour
     void cassando()
     {  
         navAgent.speed = 7f;
-        bool t = false;
+
         if (B == true)
         {
-           // target = Pointss[actualPoint].transform;
+            target = Pointss[actualPoint].transform;
             if (Vector3.Distance(transform.position, target.position) > 3f)
             {
                 ///actualPoint = Random.Range(1, 10);
@@ -106,69 +106,59 @@ public class Bot : MonoBehaviour
             if (Vector3.Distance(transform.position, target.position) < 3f)
             {
                 actualPoint = Random.Range(0, 20);
-                target = Pointss[actualPoint].transform;
             }
         }
         //GameObject[] playerss = GameObject.FindGameObjectsWithTag("Player");
         // player.Add(GameObject.FindGameObjectWithTag("Player"));
-       // int L;
-        //L = goList.Count;
+        int L;
+        L = goList.Count;
         //if (test)
         //{
             for (int A = 0; A < L; A++)
             {
-            if (Vector3.Distance(transform.position, goList[A].transform.position) < distanceP && goList[A].transform.tag=="Player")
+                if (Vector3.Distance(transform.position, goList[A].transform.position) < distanceP && goList[A].transform.tag=="Player")
                 {
                     player = goList[A];
-                    t = true;
                 }
 
                 distanceP = Vector3.Distance(transform.position, goList[A].transform.position);
-            if (goList[A].transform.tag == "Enemy")
-            {
-                goList.Remove(goList[A]);
-            }
 
-        }
-      
+            }
         //}
 
-        if (t)
+
+        Vector3 direction = player.transform.position - navAgent.transform.position;
+        float angle = Vector3.Angle(direction, transform.forward);
+        float DistancePlayer = Vector3.Distance(player.transform.position, navAgent.transform.position);
+        RaycastHit hit;
+
+        if (Physics.Raycast(transform.position, direction, out hit, 1000) && DistancePlayer < DistancePerception)
         {
-            Vector3 direction = player.transform.position - navAgent.transform.position;
-            float angle = Vector3.Angle(direction, transform.forward);
-            float DistancePlayer = Vector3.Distance(player.transform.position, navAgent.transform.position);
-            RaycastHit hit;
-
-            if (Physics.Raycast(transform.position, direction, out hit, 1000) && DistancePlayer < DistancePerception)
+            //Persegue o player se estiver em vista
+            if (((hit.collider.gameObject.CompareTag("Player")) && (angle < visionEnemy)))
             {
-                //Persegue o player se estiver em vista
-                if (((hit.collider.gameObject.CompareTag("Player")) && (angle < visionEnemy)))
-                {
-                    lastPlayerSee = player.transform;
-                    navAgent.SetDestination(player.transform.position);
-                    Vector3 look = navAgent.steeringTarget;
-                    navAgent.transform.LookAt(look);
-                    chasing = true;
-                    B = false;
-                    //Atirar
-                    test = false;
-                    if (canShoot == true)
-                    {
-                        Invoke("Fire", 2f);
-                        canShoot = false;
-                    }
-
+                lastPlayerSee = player.transform;
+                navAgent.SetDestination(player.transform.position);
+                Vector3 look = navAgent.steeringTarget;
+                navAgent.transform.LookAt(look);
+                chasing = true;
+                B = false;
+                //Atirar
+                test = false;
+                if (canShoot == true) {
+                    Invoke("Fire", 2f);
+                    canShoot = false;
                 }
-
-                //Persegue o último lugar que viu o player
-                else if (chasing == true)
-                {
-                    navAgent.SetDestination(lastPlayerSee.transform.position);
-                    Invoke("Ronda", 3f);
-                }
-
+                
             }
+         
+            //Persegue o último lugar que viu o player
+           else if (chasing == true)
+            {
+                navAgent.SetDestination(lastPlayerSee.transform.position);
+                Invoke("Ronda", 3f);
+            }
+         
         }
 
     }
@@ -262,6 +252,8 @@ public class Bot : MonoBehaviour
 
     public void Transformation()
     {
+        //
+        gameController.infecteds.Add(this.gameObject);
         // Desativa o model de doutor
         doctorModel.SetActive(false);
         // Ativa o model de infectado
