@@ -116,12 +116,17 @@ public class Bot : MonoBehaviour
         //{
             for (int A = 0; A < L; A++)
             {
+   
                 if (Vector3.Distance(transform.position, goList[A].transform.position) < distanceP && goList[A].transform.tag=="Player")
                 {
                     player = goList[A];
                 }
 
                 distanceP = Vector3.Distance(transform.position, goList[A].transform.position);
+                if(goList[A].transform.tag == "Enemy")
+            {
+                goList.Remove(goList[A]);
+            }
 
             }
         //}
